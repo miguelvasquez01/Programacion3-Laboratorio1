@@ -8,6 +8,6 @@ public class AdministradorController {
 
     @FXML
     private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
+        App.setRoot("sesionView");
     }
 }
