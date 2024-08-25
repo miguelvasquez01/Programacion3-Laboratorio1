@@ -8,17 +8,17 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="laboratorio1.controller.SesionController">
    <children>
       <Button fx:id="secondaryButton" layoutX="253.0" layoutY="360.0" onAction="#switchToPrimary" text="Volver al inicio" />
-      <TableView layoutX="12.0" layoutY="84.0" prefHeight="200.0" prefWidth="564.0">
+      <TableView fx:id="tblSesiones" layoutX="12.0" layoutY="84.0" prefHeight="200.0" prefWidth="564.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Fecha" />
-          <TableColumn prefWidth="75.0" text="Duración" />
-            <TableColumn prefWidth="75.0" text="Deporte" />
-            <TableColumn prefWidth="75.0" text="Entrenador" />
-            <TableColumn prefWidth="75.0" text="Estado" />
+          <TableColumn fx:id="colFecha" prefWidth="75.0" text="Fecha" />
+          <TableColumn fx:id="colDuracion" prefWidth="75.0" text="Duración" />
+            <TableColumn fx:id="colDeporte" prefWidth="75.0" text="Deporte" />
+            <TableColumn fx:id="colEntrenador" prefWidth="75.0" text="Entrenador" />
+            <TableColumn fx:id="colEstado" prefWidth="75.0" text="Estado" />
         </columns>
       </TableView>
-      <Button layoutX="64.0" layoutY="301.0" mnemonicParsing="false" text="Agregar sesión" />
-      <Button layoutX="252.0" layoutY="301.0" mnemonicParsing="false" text="Editar sesión" />
-      <Button layoutX="438.0" layoutY="301.0" mnemonicParsing="false" text="Eliminar sesión" />
+      <Button layoutX="64.0" layoutY="301.0" mnemonicParsing="false" onAction="#agregarSesion" text="Agregar sesión" />
+      <Button layoutX="252.0" layoutY="301.0" mnemonicParsing="false" onAction="#editarSesion" text="Editar sesión" />
+      <Button layoutX="438.0" layoutY="301.0" mnemonicParsing="false" onAction="#eliminarSesion" text="Eliminar sesión" />
    </children>
 </AnchorPane>
