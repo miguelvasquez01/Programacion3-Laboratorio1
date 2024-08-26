@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.ArrayList;
 import java.util.List;
 
 import javafx.collections.FXCollections;
@@ -53,9 +52,6 @@ public class DeporteController implements Initializable, Serializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/laboratorio1/DialogDeporteView.fxml"));
             Parent root = loader.load();
-
-            DialogSesionController s = new DialogSesionController();
-            s.initDeportes(deportes);
 
             DialogDeporteController controlador = loader.getController();
             controlador.initAtributos(deportes);
@@ -141,7 +137,7 @@ public class DeporteController implements Initializable, Serializable {
         } else {
             this.deportes.remove(d);
             this.tblDeportes.refresh();
-            SerializarObjeto.serializarLista("deportes.txt", new ArrayList<>(this.deportes));
+            d.guardar(this.deportes);
         }
     }
 

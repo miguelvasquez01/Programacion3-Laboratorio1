@@ -2,6 +2,7 @@ package laboratorio1.controller;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -15,10 +16,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import laboratorio1.dao.SerializarObjeto;
 import laboratorio1.model.Deporte;
 import laboratorio1.model.Entrenador;
 import laboratorio1.model.EstadoSesion;
-import laboratorio1.model.NivelDificultad;
 import laboratorio1.model.SesionEntrenamiento;
 
 public class DialogSesionController implements Initializable {
@@ -46,7 +47,7 @@ public class DialogSesionController implements Initializable {
     private SesionEntrenamiento sesion;
     private ObservableList<SesionEntrenamiento> sesiones;
 
-    private ObservableList<Deporte> deportes;
+    private ObservableList<Deporte> deportes = FXCollections.observableArrayList();
 
     @FXML
     void aceptar(ActionEvent event) {
@@ -112,20 +113,32 @@ public class DialogSesionController implements Initializable {
         return this.sesion;
     }
 
-    //Le mando la lista de deportes a este controller
-    public void initDeportes(ObservableList<Deporte> deportes) {
-        this.deportes = deportes;
-    }
-
     @SuppressWarnings("unchecked")
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        
+    // Deserializar la lista de deportes
+    List<Deporte> listaD = SerializarObjeto.deserializarLista("deportes.txt", Deporte.class);
 
-        deportes = FXCollections.observableArrayList();
-        ObservableList<Deporte> list = FXCollections.observableArrayList();
-        for(Deporte d: deportes) {
-            list.add(d);
+    // Verificar si la lista deserializada es válida y no contiene datos corruptos
+    if (listaD == null) {
+        System.out.println("Lista deserializada es null");
+    } else {
+        System.out.println("Lista deserializada: " + listaD);
+        for (Deporte d : listaD) {
+            System.out.println(d);
         }
-        tfDeporte.setItems(list);
+
+        // Asignar la lista deserializada a la lista observable
+        try {
+            deportes.setAll(listaD); // Reemplaza el contenido de la lista observable
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al asignar la lista deserializada: " + e.getMessage());
+        }
+    }
+
+    // Configurar el TableView con la lista observable
+    tfDeporte.setItems(deportes);
     }
 }

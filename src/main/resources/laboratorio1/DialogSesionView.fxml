@@ -18,6 +18,6 @@
       <Label layoutX="40.0" layoutY="219.0" text="Entrenador" />
       <ComboBox fx:id="tfEntrenador" layoutX="38.0" layoutY="237.0" prefWidth="150.0" />
       <Button fx:id="btnAceptar" layoutX="41.0" layoutY="320.0" mnemonicParsing="false" onAction="#aceptar" text="Aceptar" />
-      <Button fx:id="btnCancelar" layoutX="142.0" layoutY="320.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+      <Button fx:id="btnCancelar" layoutX="152.0" layoutY="320.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
    </children>
 </AnchorPane>

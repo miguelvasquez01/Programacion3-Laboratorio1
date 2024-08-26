@@ -160,6 +160,5 @@ public class SesionController implements Initializable {
         this.colEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
         this.colDeporte.setCellValueFactory(new PropertyValueFactory<>("deporte"));
         this.colEntrenador.setCellValueFactory(new PropertyValueFactory<>("entrenador"));
-
     }
 }
