@@ -13,58 +13,45 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import laboratorio1.App;
-import laboratorio1.model.SesionEntrenamiento;
+import laboratorio1.model.Deporte;
 
-public class SesionController implements Initializable {
-
-    @SuppressWarnings("rawtypes")
-    @FXML
-    private TableColumn colDeporte;
+public class DeporteController implements Initializable {
 
     @SuppressWarnings("rawtypes")
     @FXML
-    private TableColumn colDuracion;
+    private TableColumn colDescripcion;
 
     @SuppressWarnings("rawtypes")
     @FXML
-    private TableColumn colEntrenador;
+    private TableColumn colEntrenadores;
 
     @SuppressWarnings("rawtypes")
     @FXML
-    private TableColumn colEstado;
+    private TableColumn colNivelDificultad;
 
     @SuppressWarnings("rawtypes")
     @FXML
-    private TableColumn colFecha;
+    private TableColumn colNombre;
 
     @FXML
-    private TableView<SesionEntrenamiento> tblSesiones;
+    private TableView<Deporte> tblDeportes;
+
+    private ObservableList<Deporte> deportes;
 
     @FXML
-    private Button secondaryButton;
-
-    private ObservableList<SesionEntrenamiento> sesiones;
-
-    @FXML
-    private void switchToAdmin(ActionEvent event) throws IOException {
-        App.setRoot("administradorView");
-    }
-
-    @FXML
-    void agregarSesion(ActionEvent event) {
+    void agregarDeporte(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/laboratorio1/DialogSesionView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/laboratorio1/DialogDeporteView.fxml"));
             Parent root = loader.load();
 
-            DialogSesionController controlador = loader.getController();
-            controlador.initAtributos(sesiones);
+            DialogDeporteController controlador = loader.getController();
+            controlador.initAtributos(deportes);
             
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -72,12 +59,12 @@ public class SesionController implements Initializable {
             stage.setScene(scene);
             stage.showAndWait();
 
-            SesionEntrenamiento s = controlador.getSesion();
+            Deporte d = controlador.getDeporte();
             
-            if(s != null) {
-                this.sesiones.add(s);
-                this.tblSesiones.setItems(sesiones);
-                tblSesiones.refresh();
+            if(d != null) {
+                this.deportes.add(d);
+                this.tblDeportes.setItems(deportes);
+                tblDeportes.refresh();
             }
 
         } catch (IOException e) {
@@ -91,23 +78,23 @@ public class SesionController implements Initializable {
     }
 
     @FXML
-    void editarSesion(ActionEvent event) {
+    void editarDeporte(ActionEvent event) {
 
-        SesionEntrenamiento s = this.tblSesiones.getSelectionModel().getSelectedItem();
+        Deporte d = this.tblDeportes.getSelectionModel().getSelectedItem();
     
-        if (s == null) {
+        if (d == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
-            alert.setContentText("Seleccione una sesión");
+            alert.setContentText("Seleccione un deporte");
             alert.showAndWait();
         } else {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/laboratorio1/DialogSesionView.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/laboratorio1/DialogDeporteView.fxml"));
                 Parent root = loader.load();
 
-                DialogSesionController controlador = loader.getController();
-                controlador.initAtributos(sesiones, s);
+                DialogDeporteController controlador = loader.getController();
+                controlador.initAtributos(deportes, d);
                 
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
@@ -115,10 +102,10 @@ public class SesionController implements Initializable {
                 stage.setScene(scene);
                 stage.showAndWait();
 
-                SesionEntrenamiento aux = controlador.getSesion();
+                Deporte aux = controlador.getDeporte();
                 
                 if(aux != null) {
-                    tblSesiones.refresh();
+                    tblDeportes.refresh();
                 }
 
             } catch (IOException e) {
@@ -132,34 +119,38 @@ public class SesionController implements Initializable {
     }
 
     @FXML
-    void eliminarSesion(ActionEvent event) {
+    void eliminarDeporte(ActionEvent event) {
 
-        SesionEntrenamiento s = this.tblSesiones.getSelectionModel().getSelectedItem();
+        Deporte d = this.tblDeportes.getSelectionModel().getSelectedItem();
     
-        if (s == null) {
+        if (d == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
-            alert.setContentText("Seleccione una sesión");
+            alert.setContentText("Seleccione un deporte");
             alert.showAndWait();
         } else {
-            this.sesiones.remove(s);
-            this.tblSesiones.refresh();
+            this.deportes.remove(d);
+            this.tblDeportes.refresh();
         }
+    }
+
+    @FXML
+    void switchToAdmin(ActionEvent event) throws IOException {
+        App.setRoot("administradorView");
     }
 
     @SuppressWarnings("unchecked")
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
-        sesiones = FXCollections.observableArrayList();
-        this.tblSesiones.setItems(sesiones);
+        deportes = FXCollections.observableArrayList();
+        this.tblDeportes.setItems(deportes);
         
-        this.colFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
-        this.colDuracion.setCellValueFactory(new PropertyValueFactory<>("duracion"));
-        this.colEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
-        this.colDeporte.setCellValueFactory(new PropertyValueFactory<>("deporte"));
-        this.colEntrenador.setCellValueFactory(new PropertyValueFactory<>("entrenador"));
-
+        this.colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.colDescripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
+        this.colNivelDificultad.setCellValueFactory(new PropertyValueFactory<>("nivelDificultad"));
+        this.colEntrenadores.setCellValueFactory(new PropertyValueFactory<>("entrenador"));
     }
+
 }

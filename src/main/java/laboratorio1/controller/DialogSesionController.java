@@ -102,6 +102,6 @@ public class DialogSesionController {
     }
 
     public SesionEntrenamiento getSesion() {
-        return sesion;
+        return this.sesion;
     }
 }

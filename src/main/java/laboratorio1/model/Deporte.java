@@ -8,12 +8,20 @@ public class Deporte {
     private String descripcion;
     private NivelDificultad nivelDificultad;
     private List<Entrenador> entrenadores;
+    private Entrenador entrenador;
 
     public Deporte(String nombre, String descripcion, NivelDificultad nivelDificultad) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.nivelDificultad = nivelDificultad;
         this.entrenadores = new LinkedList<>();
+    }
+
+    public Deporte(String nombre, String descripcion, NivelDificultad nivelDificultad, Entrenador entrenador) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.nivelDificultad = nivelDificultad;
+        this.entrenador = entrenador;
     }
 
     public String getNombre() {
@@ -48,4 +56,11 @@ public class Deporte {
         return entrenadores;
     }
 
+    public Entrenador getEntrenador() {
+        return entrenador;
+    }
+
+    public void setEntrenador(Entrenador entrenador) {
+        this.entrenador = entrenador;
+    }
 }

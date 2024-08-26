@@ -3,10 +3,11 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="laboratorio1.controller.AdministradorController">
    <children>
-      <Button fx:id="primaryButton" layoutX="22.0" layoutY="322.0" onAction="#switchToSecondary" text="Gestionar sesiones de entrenamiento activas" />
-      <Button layoutX="300.0" layoutY="322.0" mnemonicParsing="false" text="Visualizar sesiones de entrenamiento completadas" />
+      <Button fx:id="primaryButton" layoutX="61.0" layoutY="200.0" onAction="#switchToGestionarSesionesActivas" text="Gestionar sesiones de entrenamiento activas" />
+      <Button layoutX="61.0" layoutY="281.0" mnemonicParsing="false" onAction="#switchToVisualizarSesionesComp" text="Visualizar sesiones de entrenamiento completadas" />
+      <Button layoutX="61.0" layoutY="69.0" mnemonicParsing="false" onAction="#switchToGestionarDeportes" text="Gestionar deportes" />
+      <Button layoutX="61.0" layoutY="132.0" mnemonicParsing="false" onAction="#switchToGestionarEntrenadores" text="Gestionar entrenadores" />
    </children>
 </AnchorPane>
