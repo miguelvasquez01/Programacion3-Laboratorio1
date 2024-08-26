@@ -1,10 +1,11 @@
 package laboratorio1.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
-public class SesionEntrenamiento {
+public class SesionEntrenamiento implements Serializable {
     private LocalDate fecha;
     private int duracion;
     private EstadoSesion estado;

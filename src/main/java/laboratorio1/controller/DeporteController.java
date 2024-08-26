@@ -1,8 +1,11 @@
 package laboratorio1.controller;
 
+import java.io.Serializable;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.ArrayList;
+import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,9 +22,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import laboratorio1.App;
+import laboratorio1.dao.SerializarObjeto;
 import laboratorio1.model.Deporte;
 
-public class DeporteController implements Initializable {
+public class DeporteController implements Initializable, Serializable {
 
     @SuppressWarnings("rawtypes")
     @FXML
@@ -50,6 +54,9 @@ public class DeporteController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/laboratorio1/DialogDeporteView.fxml"));
             Parent root = loader.load();
 
+            DialogSesionController s = new DialogSesionController();
+            s.initDeportes(deportes);
+
             DialogDeporteController controlador = loader.getController();
             controlador.initAtributos(deportes);
             
@@ -65,6 +72,7 @@ public class DeporteController implements Initializable {
                 this.deportes.add(d);
                 this.tblDeportes.setItems(deportes);
                 tblDeportes.refresh();
+                d.guardar(this.deportes);
             }
 
         } catch (IOException e) {
@@ -105,6 +113,7 @@ public class DeporteController implements Initializable {
                 Deporte aux = controlador.getDeporte();
                 
                 if(aux != null) {
+                    aux.guardar(this.deportes);
                     tblDeportes.refresh();
                 }
 
@@ -132,6 +141,7 @@ public class DeporteController implements Initializable {
         } else {
             this.deportes.remove(d);
             this.tblDeportes.refresh();
+            SerializarObjeto.serializarLista("deportes.txt", new ArrayList<>(this.deportes));
         }
     }
 
@@ -151,6 +161,13 @@ public class DeporteController implements Initializable {
         this.colDescripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
         this.colNivelDificultad.setCellValueFactory(new PropertyValueFactory<>("nivelDificultad"));
         this.colEntrenadores.setCellValueFactory(new PropertyValueFactory<>("entrenador"));
-    }
 
+        // Deserializar la lista de deportes desde el archivo
+        List<Deporte> listaD = SerializarObjeto.deserializarLista("deportes.txt", Deporte.class);
+
+        // Verificar si la lista deserializada es nula o vacía
+        if (listaD != null && !listaD.isEmpty()) {
+            deportes.addAll(listaD); // Agregar los deportes a la lista observable
+        }
+    }
 }

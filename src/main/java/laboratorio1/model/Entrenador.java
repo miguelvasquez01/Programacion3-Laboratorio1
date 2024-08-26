@@ -1,9 +1,10 @@
 package laboratorio1.model;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Entrenador {
+public class Entrenador implements Serializable {
     private String nombre;
     private Deporte especialidad;
     private List<SesionEntrenamiento> sesiones;

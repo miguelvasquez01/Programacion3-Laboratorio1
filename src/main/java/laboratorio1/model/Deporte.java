@@ -1,9 +1,13 @@
 package laboratorio1.model;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Deporte {
+import laboratorio1.dao.SerializarObjeto;
+
+public class Deporte implements Serializable {
     private String nombre;
     private String descripcion;
     private NivelDificultad nivelDificultad;
@@ -62,5 +66,11 @@ public class Deporte {
 
     public void setEntrenador(Entrenador entrenador) {
         this.entrenador = entrenador;
+    }
+
+    // Método para guardar todos los deportes
+    public void guardar(List<Deporte> deportes) {
+        // Serializar la lista completa de deportes
+        SerializarObjeto.serializarLista("deportes.txt", new ArrayList<>(deportes));
     }
 }

@@ -1,10 +1,14 @@
 package laboratorio1.controller;
 
+import java.net.URL;
 import java.time.LocalDate;
+import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -14,9 +18,10 @@ import javafx.stage.Stage;
 import laboratorio1.model.Deporte;
 import laboratorio1.model.Entrenador;
 import laboratorio1.model.EstadoSesion;
+import laboratorio1.model.NivelDificultad;
 import laboratorio1.model.SesionEntrenamiento;
 
-public class DialogSesionController {
+public class DialogSesionController implements Initializable {
 
     @FXML
     private Button btnAceptar;
@@ -40,6 +45,8 @@ public class DialogSesionController {
 
     private SesionEntrenamiento sesion;
     private ObservableList<SesionEntrenamiento> sesiones;
+
+    private ObservableList<Deporte> deportes;
 
     @FXML
     void aceptar(ActionEvent event) {
@@ -103,5 +110,22 @@ public class DialogSesionController {
 
     public SesionEntrenamiento getSesion() {
         return this.sesion;
+    }
+
+    //Le mando la lista de deportes a este controller
+    public void initDeportes(ObservableList<Deporte> deportes) {
+        this.deportes = deportes;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+
+        deportes = FXCollections.observableArrayList();
+        ObservableList<Deporte> list = FXCollections.observableArrayList();
+        for(Deporte d: deportes) {
+            list.add(d);
+        }
+        tfDeporte.setItems(list);
     }
 }
