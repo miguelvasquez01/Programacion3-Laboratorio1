@@ -16,7 +16,7 @@ import laboratorio1.model.Entrenador;
 import laboratorio1.model.EstadoSesion;
 import laboratorio1.model.SesionEntrenamiento;
 
-public class CRUDSesionController {
+public class DialogSesionController {
 
     @FXML
     private Button btnAceptar;
@@ -53,7 +53,18 @@ public class CRUDSesionController {
         SesionEntrenamiento s = new SesionEntrenamiento(fecha, duracion, estado, deporte, entrenador);
 
         if(!sesiones.contains(s)) {
-            this.sesion = s;
+
+            //Modificar
+            if(this.sesion != null) {
+                this.sesion.setFecha(fecha);
+                this.sesion.setDuracion(duracion);
+                this.sesion.setDeporte(deporte);
+                this.sesion.setEntrenador(entrenador);
+
+            //Insertar
+            } else {
+                this.sesion = s;
+            }
 
             Stage stage = (Stage) this.btnAceptar.getScene().getWindow();
             stage.close();
@@ -77,6 +88,17 @@ public class CRUDSesionController {
     //Con este método mando todas las sesiones a esta clase para comprobar que no se repita
     public void initAtributos(ObservableList<SesionEntrenamiento> sesiones) {
         this.sesiones = sesiones;
+    }
+
+    //Pone la sesión seleccionada en los campos de texto
+    @SuppressWarnings("unchecked")
+    public void initAtributos(ObservableList<SesionEntrenamiento> sesiones, SesionEntrenamiento s) {
+        this.sesiones = sesiones;
+        this.sesion = s;
+        this.tfFecha.setValue(s.getFecha());
+        this.tfDuracion.setText(s.getDuracion() + "");
+        this.tfDeporte.setValue(s.getDeporte().getNombre());
+        this.tfEntrenador.setValue(s.getEntrenador().getNombre());
     }
 
     public SesionEntrenamiento getSesion() {
