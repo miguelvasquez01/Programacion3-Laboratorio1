@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="laboratorio1.controller.EntrenadorController">
+   <children>
+      <TableView fx:id="tblEntrenadores" layoutX="138.0" layoutY="88.0" prefHeight="200.0" prefWidth="276.0">
+        <columns>
+          <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombre" />
+          <TableColumn fx:id="colEspecialidad" prefWidth="75.0" text="Especialidad" />
+            <TableColumn fx:id="colSesiones" prefWidth="120.79998779296875" text="Sesiones asignadas" />
+        </columns>
+      </TableView>
+      <Button layoutX="105.0" layoutY="319.0" mnemonicParsing="false" onAction="#agregarEntrenador" text="Agregar entrenador" />
+      <Button layoutX="250.0" layoutY="319.0" mnemonicParsing="false" onAction="#editarEntrenador" text="Editar entrenador" />
+      <Button layoutX="394.0" layoutY="319.0" mnemonicParsing="false" onAction="#eliminarEntrenador" text="Eliminar entrenador" />
+      <Button layoutX="479.0" layoutY="35.0" mnemonicParsing="false" onAction="#switchToAdmin" text="Volver al inicio" />
+   </children>
+</AnchorPane>

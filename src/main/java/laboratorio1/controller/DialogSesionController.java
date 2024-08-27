@@ -88,6 +88,7 @@ public class DialogSesionController implements Initializable {
 
     @FXML
     void cancelar(ActionEvent event) {
+
         this.sesion = null;
         Stage stage = (Stage) this.btnCancelar.getScene().getWindow();
         stage.close();
@@ -117,28 +118,10 @@ public class DialogSesionController implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         
-    // Deserializar la lista de deportes
-    List<Deporte> listaD = SerializarObjeto.deserializarLista("deportes.txt", Deporte.class);
-
-    // Verificar si la lista deserializada es válida y no contiene datos corruptos
-    if (listaD == null) {
-        System.out.println("Lista deserializada es null");
-    } else {
-        System.out.println("Lista deserializada: " + listaD);
-        for (Deporte d : listaD) {
-            System.out.println(d);
-        }
-
-        // Asignar la lista deserializada a la lista observable
-        try {
-            deportes.setAll(listaD); // Reemplaza el contenido de la lista observable
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error al asignar la lista deserializada: " + e.getMessage());
-        }
-    }
-
-    // Configurar el TableView con la lista observable
-    tfDeporte.setItems(deportes);
+        // Deserializar la lista de deportes
+        List<Deporte> listaD = SerializarObjeto.deserializarLista("deportes.txt", Deporte.class);
+        deportes.setAll(listaD); 
+        // Configurar el TableView con la lista observable
+        tfDeporte.setItems(deportes);
     }
 }

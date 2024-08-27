@@ -1,11 +1,11 @@
 package laboratorio1.controller;
 
-import java.io.Serializable;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.List;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,15 +24,14 @@ import laboratorio1.App;
 import laboratorio1.dao.SerializarObjeto;
 import laboratorio1.model.Deporte;
 
-public class DeporteController implements Initializable, Serializable {
+public class DeporteController implements Initializable {
 
     @SuppressWarnings("rawtypes")
     @FXML
     private TableColumn colDescripcion;
 
-    @SuppressWarnings("rawtypes")
     @FXML
-    private TableColumn colEntrenadores;
+    private TableColumn<Deporte, String> colEntrenadores;
 
     @SuppressWarnings("rawtypes")
     @FXML
@@ -156,7 +155,12 @@ public class DeporteController implements Initializable, Serializable {
         this.colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.colDescripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
         this.colNivelDificultad.setCellValueFactory(new PropertyValueFactory<>("nivelDificultad"));
-        this.colEntrenadores.setCellValueFactory(new PropertyValueFactory<>("entrenador"));
+        // Configurar la columna para mostrar el nombre del entrenador
+        this.colEntrenadores.setCellValueFactory(cellData -> {
+            Deporte deporte = cellData.getValue();
+            String nombreEntrenador = deporte.getEntrenador() != null ? deporte.getEntrenador().getNombre() : "Sin entrenador";
+            return new SimpleStringProperty(nombreEntrenador);
+        });
 
         // Deserializar la lista de deportes desde el archivo
         List<Deporte> listaD = SerializarObjeto.deserializarLista("deportes.txt", Deporte.class);

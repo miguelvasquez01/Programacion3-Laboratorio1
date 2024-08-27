@@ -14,8 +14,8 @@ public class AdministradorController {
     }
 
     @FXML
-    void switchToGestionarEntrenadores(ActionEvent event) {
-        
+    void switchToGestionarEntrenadores(ActionEvent event) throws IOException {
+        App.setRoot("entrenadorView");
     }
 
     @FXML
