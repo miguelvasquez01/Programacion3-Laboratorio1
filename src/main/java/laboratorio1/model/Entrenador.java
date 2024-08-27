@@ -62,7 +62,7 @@ public class Entrenador implements Serializable {
     // Método para guardar todos los entrenadores
     public void guardar(List<Entrenador> entrenadores) {
         // Serializar la lista completa de deportes
-        SerializarObjeto.serializarLista("entrenadores.txt", new ArrayList<>(entrenadores));
+        SerializarObjeto.serializarLista(SerializarObjeto.rutaDao()+"entrenadores.txt", new ArrayList<>(entrenadores));
     }
 
 

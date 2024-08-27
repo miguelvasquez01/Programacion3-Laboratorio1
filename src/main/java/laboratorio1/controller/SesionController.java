@@ -160,7 +160,7 @@ public class SesionController implements Initializable {
         this.tblSesiones.setItems(sesiones);
 
         // Deserializar la lista de deportes desde el archivo
-        List<SesionEntrenamiento> listaS = SerializarObjeto.deserializarLista("sesiones.txt", SesionEntrenamiento.class);
+        List<SesionEntrenamiento> listaS = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao()+"sesiones.txt", SesionEntrenamiento.class);
 
         // Verificar si la lista deserializada es nula o vacía
         if (listaS != null && !listaS.isEmpty()) {

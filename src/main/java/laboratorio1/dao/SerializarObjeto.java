@@ -8,6 +8,12 @@ import java.io.Serializable;
 import java.util.List;
 
 public class SerializarObjeto {
+
+    public static String rutaDao() {
+        String rutaProyecto = System.getProperty("user.dir");
+        String ruta = rutaProyecto + "/laboratorio1/src/main/java/laboratorio1/dao/";
+        return ruta;
+    }
     
     public static boolean serializarObjeto(String direccionArchivo, Serializable objeto) {
 

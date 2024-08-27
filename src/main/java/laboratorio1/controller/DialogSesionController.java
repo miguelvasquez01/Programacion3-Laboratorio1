@@ -118,7 +118,7 @@ public class DialogSesionController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
         
         // Deserializar la lista de deportes
-        List<Deporte> listaD = SerializarObjeto.deserializarLista("deportes.txt", Deporte.class);
+        List<Deporte> listaD = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao()+"deportes.txt", Deporte.class);
         deportes.setAll(listaD); 
         // Configurar el TableView con la lista observable
         tfDeporte.setItems(deportes);
@@ -138,7 +138,7 @@ public class DialogSesionController implements Initializable {
         });
 
         // Deserializar la lista de entrenadores desde el archivo
-        List<Entrenador> listaE = SerializarObjeto.deserializarLista("entrenadores.txt", Entrenador.class);
+        List<Entrenador> listaE = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao()+"entrenadores.txt", Entrenador.class);
         entrenadores.setAll(listaE);
 
             // Configurar el ComboBox tfEntrenador con la lista observable de entrenadores

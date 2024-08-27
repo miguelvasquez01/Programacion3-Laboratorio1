@@ -105,7 +105,7 @@ public class DialogEntrenadorController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         // Deserializar la lista de deportes
-        List<Deporte> listaD = SerializarObjeto.deserializarLista("deportes.txt", Deporte.class);
+        List<Deporte> listaD = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao()+"deportes.txt", Deporte.class);
         deportes.setAll(listaD); 
 
         // Configurar el ComboBox con la lista observable

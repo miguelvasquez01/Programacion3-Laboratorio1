@@ -70,7 +70,8 @@ public class Deporte implements Serializable {
 
     // Método para guardar todos los deportes
     public void guardar(List<Deporte> deportes) {
+
         // Serializar la lista completa de deportes
-        SerializarObjeto.serializarLista("deportes.txt", new ArrayList<>(deportes));
+        SerializarObjeto.serializarLista(SerializarObjeto.rutaDao() + "deportes.txt", new ArrayList<>(deportes));
     }
 }

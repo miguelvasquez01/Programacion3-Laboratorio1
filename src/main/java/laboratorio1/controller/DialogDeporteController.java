@@ -119,7 +119,7 @@ public class DialogDeporteController implements Initializable {
     tfNivelDificutad.setItems(list);
         
     // Deserializar la lista de entrenadores desde el archivo
-    List<Entrenador> listaE = SerializarObjeto.deserializarLista("entrenadores.txt", Entrenador.class);
+    List<Entrenador> listaE = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao()+"entrenadores.txt", Entrenador.class);
     entrenadores.setAll(listaE);
 
     // Configurar el ComboBox tfEntrenador con la lista observable de entrenadores

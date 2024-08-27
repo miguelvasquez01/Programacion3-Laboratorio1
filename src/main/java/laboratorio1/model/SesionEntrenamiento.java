@@ -77,7 +77,7 @@ public class SesionEntrenamiento implements Serializable {
     // Método para guardar todas las sesiones
     public void guardar(List<SesionEntrenamiento> sesiones) {
         // Serializar la lista completa de deportes
-        SerializarObjeto.serializarLista("sesiones.txt", new ArrayList<>(sesiones));
+        SerializarObjeto.serializarLista(SerializarObjeto.rutaDao()+"sesiones.txt", new ArrayList<>(sesiones));
     }
 
 

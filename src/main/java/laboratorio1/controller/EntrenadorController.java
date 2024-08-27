@@ -158,7 +158,7 @@ public class EntrenadorController implements Initializable {
         this.colSesiones.setCellValueFactory(new PropertyValueFactory<>("sesion"));
 
         // Deserializar la lista de deportes desde el archivo
-        List<Entrenador> listaE = SerializarObjeto.deserializarLista("entrenadores.txt", Entrenador.class);
+        List<Entrenador> listaE = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao()+"entrenadores.txt", Entrenador.class);
 
         // Verificar si la lista deserializada es nula o vacía
         if (listaE != null && !listaE.isEmpty()) {

@@ -163,7 +163,7 @@ public class DeporteController implements Initializable {
         });
 
         // Deserializar la lista de deportes desde el archivo
-        List<Deporte> listaD = SerializarObjeto.deserializarLista("deportes.txt", Deporte.class);
+        List<Deporte> listaD = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao()+"deportes.txt", Deporte.class);
 
         // Verificar si la lista deserializada es nula o vacía
         if (listaD != null && !listaD.isEmpty()) {
