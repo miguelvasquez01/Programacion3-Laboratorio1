@@ -2,8 +2,10 @@ package laboratorio1.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,21 +22,20 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import laboratorio1.App;
+import laboratorio1.dao.SerializarObjeto;
 import laboratorio1.model.SesionEntrenamiento;
 
 public class SesionController implements Initializable {
 
-    @SuppressWarnings("rawtypes")
     @FXML
-    private TableColumn colDeporte;
+    private TableColumn<SesionEntrenamiento, String> colDeporte;
 
     @SuppressWarnings("rawtypes")
     @FXML
     private TableColumn colDuracion;
 
-    @SuppressWarnings("rawtypes")
     @FXML
-    private TableColumn colEntrenador;
+    private TableColumn<SesionEntrenamiento, String> colEntrenador;
 
     @SuppressWarnings("rawtypes")
     @FXML
@@ -78,6 +79,7 @@ public class SesionController implements Initializable {
                 this.sesiones.add(s);
                 this.tblSesiones.setItems(sesiones);
                 tblSesiones.refresh();
+                s.guardar(this.sesiones);
             }
 
         } catch (IOException e) {
@@ -118,6 +120,7 @@ public class SesionController implements Initializable {
                 SesionEntrenamiento aux = controlador.getSesion();
                 
                 if(aux != null) {
+                    aux.guardar(this.sesiones);
                     tblSesiones.refresh();
                 }
 
@@ -145,6 +148,7 @@ public class SesionController implements Initializable {
         } else {
             this.sesiones.remove(s);
             this.tblSesiones.refresh();
+            s.guardar(this.sesiones);
         }
     }
 
@@ -154,11 +158,34 @@ public class SesionController implements Initializable {
 
         sesiones = FXCollections.observableArrayList();
         this.tblSesiones.setItems(sesiones);
+
+        // Deserializar la lista de deportes desde el archivo
+        List<SesionEntrenamiento> listaS = SerializarObjeto.deserializarLista("sesiones.txt", SesionEntrenamiento.class);
+
+        // Verificar si la lista deserializada es nula o vacía
+        if (listaS != null && !listaS.isEmpty()) {
+            this.sesiones.addAll(listaS); // Agregar los deportes a la lista observable
+        }
         
         this.colFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         this.colDuracion.setCellValueFactory(new PropertyValueFactory<>("duracion"));
         this.colEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
-        this.colDeporte.setCellValueFactory(new PropertyValueFactory<>("deporte"));
-        this.colEntrenador.setCellValueFactory(new PropertyValueFactory<>("entrenador"));
+        // Configurar las columnas
+        this.colDeporte.setCellValueFactory(cellData -> {
+            SesionEntrenamiento sesion = cellData.getValue();
+            if (sesion.getDeporte() != null) {
+                return new SimpleStringProperty(sesion.getDeporte().getNombre());
+            } else {
+                return new SimpleStringProperty("Sin deporte");
+            }
+        });
+        this.colEntrenador.setCellValueFactory(cellData -> {
+            SesionEntrenamiento sesion = cellData.getValue();
+            if (sesion.getEntrenador() != null) {
+                return new SimpleStringProperty(sesion.getEntrenador().getNombre());
+            } else {
+                return new SimpleStringProperty("Sin entrenador");
+            }
+        });
     }
 }

@@ -113,14 +113,14 @@ public class DialogDeporteController implements Initializable {
     @SuppressWarnings("unchecked")
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        
-    // Deserializar la lista de entrenadores desde el archivo
-    List<Entrenador> listaE = SerializarObjeto.deserializarLista("entrenadores.txt", Entrenador.class);
-    entrenadores.setAll(listaE);
 
     // Cargar los valores de NivelDificultad en el ComboBox
     ObservableList<NivelDificultad> list = FXCollections.observableArrayList(NivelDificultad.values());
     tfNivelDificutad.setItems(list);
+        
+    // Deserializar la lista de entrenadores desde el archivo
+    List<Entrenador> listaE = SerializarObjeto.deserializarLista("entrenadores.txt", Entrenador.class);
+    entrenadores.setAll(listaE);
 
     // Configurar el ComboBox tfEntrenador con la lista observable de entrenadores
     tfEntrenador.setItems(entrenadores);

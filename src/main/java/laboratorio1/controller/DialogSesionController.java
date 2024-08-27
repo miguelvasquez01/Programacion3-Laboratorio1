@@ -16,6 +16,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 import laboratorio1.dao.SerializarObjeto;
 import laboratorio1.model.Deporte;
 import laboratorio1.model.Entrenador;
@@ -48,6 +49,7 @@ public class DialogSesionController implements Initializable {
     private ObservableList<SesionEntrenamiento> sesiones;
 
     private ObservableList<Deporte> deportes = FXCollections.observableArrayList();
+    private ObservableList<Entrenador> entrenadores = FXCollections.observableArrayList();
 
     @FXML
     void aceptar(ActionEvent event) {
@@ -100,14 +102,11 @@ public class DialogSesionController implements Initializable {
     }
 
     //Pone la sesión seleccionada en los campos de texto
-    @SuppressWarnings("unchecked")
     public void initAtributos(ObservableList<SesionEntrenamiento> sesiones, SesionEntrenamiento s) {
         this.sesiones = sesiones;
         this.sesion = s;
         this.tfFecha.setValue(s.getFecha());
         this.tfDuracion.setText(s.getDuracion() + "");
-        this.tfDeporte.setValue(s.getDeporte().getNombre());
-        this.tfEntrenador.setValue(s.getEntrenador().getNombre());
     }
 
     public SesionEntrenamiento getSesion() {
@@ -123,5 +122,41 @@ public class DialogSesionController implements Initializable {
         deportes.setAll(listaD); 
         // Configurar el TableView con la lista observable
         tfDeporte.setItems(deportes);
+        
+        // Configurar un StringConverter para mostrar los nombres de los deportes en el ComboBox
+        tfDeporte.setConverter(new StringConverter<Deporte>() {
+            @Override
+            public String toString(Deporte deporte) {
+                // Verifica si el deporte es null antes de acceder a su nombre
+                return deporte != null ? deporte.getNombre() : "";//Convierte el entrenador en string
+            }
+            @Override
+            public Deporte fromString(String nombre) {
+                // el ComboBox ya sabe internamente qué objeto fue seleccionado, por lo que no se requiere una conversión desde texto (String) a objeto (Deporte).
+                return null;
+            }
+        });
+
+        // Deserializar la lista de entrenadores desde el archivo
+        List<Entrenador> listaE = SerializarObjeto.deserializarLista("entrenadores.txt", Entrenador.class);
+        entrenadores.setAll(listaE);
+
+            // Configurar el ComboBox tfEntrenador con la lista observable de entrenadores
+        tfEntrenador.setItems(entrenadores);
+
+        // Configurar un StringConverter para mostrar los nombres de los entrenadores en el ComboBox
+        tfEntrenador.setConverter(new StringConverter<Entrenador>() {
+            @Override
+            public String toString(Entrenador entrenador) {
+                // Verifica si el entrenador es null antes de acceder a su nombre
+                return entrenador != null ? entrenador.getNombre() : "";//Convierte el entrenador en string
+            }
+
+            @Override
+            public Entrenador fromString(String nombre) {
+                // el ComboBox ya sabe internamente qué objeto fue seleccionado, por lo que no se requiere una conversión desde texto (String) a objeto (Entrenador).
+                return null;
+            }
+        });
     }
 }

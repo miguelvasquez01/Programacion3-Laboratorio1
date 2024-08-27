@@ -2,8 +2,11 @@ package laboratorio1.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
+import laboratorio1.dao.SerializarObjeto;
 
 public class SesionEntrenamiento implements Serializable {
     private LocalDate fecha;
@@ -69,6 +72,12 @@ public class SesionEntrenamiento implements Serializable {
 
     public void setMiembros(List<Miembro> miembros) {
         this.miembros = miembros;
+    }
+
+    // Método para guardar todas las sesiones
+    public void guardar(List<SesionEntrenamiento> sesiones) {
+        // Serializar la lista completa de deportes
+        SerializarObjeto.serializarLista("sesiones.txt", new ArrayList<>(sesiones));
     }
 
 
