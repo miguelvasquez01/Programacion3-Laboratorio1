@@ -11,7 +11,7 @@ public class SerializarObjeto {
 
     public static String rutaDao() {
         String rutaProyecto = System.getProperty("user.dir");
-        String ruta = rutaProyecto + "/laboratorio1/src/main/java/laboratorio1/dao/";
+        String ruta = rutaProyecto + "/src/main/java/laboratorio1/dao/";
         return ruta;
     }
     
