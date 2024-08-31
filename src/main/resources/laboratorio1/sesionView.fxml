@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="laboratorio1.controller.SesionController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="laboratorio1.controller.SesionController">
    <children>
-      <Button fx:id="secondaryButton" layoutX="253.0" layoutY="360.0" onAction="#switchToAdmin" text="Volver al inicio" />
-      <TableView fx:id="tblSesiones" layoutX="12.0" layoutY="84.0" prefHeight="200.0" prefWidth="564.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bdc3c7" height="414.0" layoutX="300.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="307.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ecc71" height="420.0" layoutY="-13.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
+      <Button fx:id="secondaryButton" layoutX="61.0" layoutY="101.0" onAction="#switchToAdmin" style="-fx-background-color: #FFFFFF;" text="Volver " />
+      <TableView fx:id="tblSesiones" layoutX="223.0" layoutY="101.0" prefHeight="305.0" prefWidth="385.0">
         <columns>
           <TableColumn fx:id="colFecha" prefWidth="75.0" text="Fecha" />
           <TableColumn fx:id="colDuracion" prefWidth="75.0" text="Duración" />
@@ -17,8 +24,23 @@
             <TableColumn fx:id="colEstado" prefWidth="75.0" text="Estado" />
         </columns>
       </TableView>
-      <Button layoutX="64.0" layoutY="301.0" mnemonicParsing="false" onAction="#agregarSesion" text="Agregar sesión" />
-      <Button layoutX="252.0" layoutY="301.0" mnemonicParsing="false" onAction="#editarSesion" text="Editar sesión" />
-      <Button layoutX="438.0" layoutY="301.0" mnemonicParsing="false" onAction="#eliminarSesion" text="Eliminar sesión" />
+      <Button layoutX="61.0" layoutY="174.0" mnemonicParsing="false" onAction="#agregarSesion" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #FFFFFF;" text="Agregar sesión" />
+      <Button layoutX="61.0" layoutY="247.0" mnemonicParsing="false" onAction="#editarSesion" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #FFFFFF;" text="Editar sesión" />
+      <Button layoutX="61.0" layoutY="310.0" mnemonicParsing="false" onAction="#eliminarSesion" style="-fx-background-color: #FFFFFF;" text="Eliminar sesión" />
+      <Label layoutX="224.0" layoutY="28.0" prefHeight="45.0" prefWidth="152.0" text="SESIONES ">
+         <font>
+            <Font name="System Bold Italic" size="30.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="79.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/channels4_profile.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="79.0" fitWidth="125.0" layoutX="521.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/descarga.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

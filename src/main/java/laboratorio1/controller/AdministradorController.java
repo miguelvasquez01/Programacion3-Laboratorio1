@@ -10,6 +10,7 @@ public class AdministradorController {
 
     @FXML
     void switchToGestionarDeportes(ActionEvent event) throws IOException {
+        System.out.println("Cambiando escena a deporteView");
         App.setRoot("deporteView");
     }
 
@@ -21,6 +22,12 @@ public class AdministradorController {
     @FXML
     void switchToGestionarSesionesActivas(ActionEvent event) throws IOException {
         App.setRoot("sesionView");
+    }
+
+    @FXML
+    void switchToGestionarMiembros(ActionEvent event) throws IOException {
+        App.setRoot("miembroView");
+
     }
 
     @FXML

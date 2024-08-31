@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import laboratorio1.App;
 
 import java.io.IOException;
 
@@ -18,6 +19,10 @@ public class LoginController {
 
     private  final String admin = "Juan David";
     private  final String idjuanda = "1091203215";
+    private  final String admin2 = "Miguel Angel";
+    private  final String idmiguel = "123";
+    private  final String admingen = "123";
+    private  final String admingenid= "123";
 
     @FXML
     private TextField txtNombre;
@@ -27,14 +32,9 @@ public class LoginController {
         String nombre = txtNombre.getText();
         String id = txtId.getText();
 
-        if (nombre.equals(admin) && id.equals(idjuanda)) {
+        if (nombre.equals(admin) && id.equals(idjuanda) || nombre.equals(admin2) && id.equals(idmiguel) || nombre.equals(admingen) && id.equals(admingenid)) {
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/laboratorio1/administradorView.fxml"));
-                Parent root = fxmlLoader.load();
-
-                Stage stage = (Stage) txtNombre.getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.show();
+                App.setRoot("administradorView");
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -46,6 +46,9 @@ public class LoginController {
             alert.setContentText("Nombre o id incorrectos");
             alert.showAndWait();
         }
+
+        txtId.clear();
+        txtNombre.clear();
 
     }
 

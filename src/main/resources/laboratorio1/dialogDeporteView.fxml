@@ -5,20 +5,47 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="253.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="laboratorio1.controller.DialogDeporteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="laboratorio1.controller.DialogDeporteController">
    <children>
-      <Label layoutX="27.0" layoutY="43.0" text="Nombre" />
-      <Label layoutX="27.0" layoutY="104.0" text="Descripción" />
-      <Label layoutX="27.0" layoutY="267.0" text="Nivel de Dificultad" />
-      <TextField fx:id="tfNombre" layoutX="27.0" layoutY="61.0" />
-      <TextArea fx:id="tfDescripcion" layoutX="27.0" layoutY="122.0" prefHeight="123.0" prefWidth="200.0" />
-      <ComboBox fx:id="tfNivelDificutad" layoutX="27.0" layoutY="285.0" prefWidth="150.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bdc3c7" height="268.0" layoutX="-7.0" layoutY="187.0" stroke="BLACK" strokeType="INSIDE" width="258.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ecc71" height="200.0" layoutX="-7.0" layoutY="-8.0" stroke="BLACK" strokeType="INSIDE" width="258.0" />
+      <Label layoutX="39.0" layoutY="101.0" text="Nombre">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Label>
+      <Label layoutX="43.0" layoutY="155.0" text="Descripción">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label layoutX="40.0" layoutY="297.0" text="Nivel de Dificultad">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <TextField fx:id="tfNombre" layoutX="39.0" layoutY="121.0" promptText="Digite su nombre..." style="-fx-background-color: #FFFFFF;" />
+      <TextArea fx:id="tfDescripcion" layoutX="40.0" layoutY="173.0" prefHeight="123.0" prefWidth="187.0" promptText="Digite una descripcion..." style="-fx-background-color: #FFFFFF;" />
+      <ComboBox fx:id="tfNivelDificutad" layoutX="39.0" layoutY="315.0" prefWidth="150.0" promptText="Seleccionar dificultad" style="-fx-background-color: #FFFFFF;" />
       <Button fx:id="btnAceptar" layoutX="47.0" layoutY="417.0" mnemonicParsing="false" onAction="#aceptar" text="Aceptar" />
       <Button fx:id="btnCancelar" layoutX="146.0" layoutY="417.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
-      <ComboBox fx:id="tfEntrenador" layoutX="26.0" layoutY="350.0" prefWidth="150.0" />
-      <Label layoutX="28.0" layoutY="332.0" text="Entrenador" />
+      <ComboBox fx:id="tfEntrenador" layoutX="39.0" layoutY="373.0" prefWidth="150.0" promptText="Seleccionar entrenador" style="-fx-background-color: #FFFFFF;" />
+      <Label layoutX="39.0" layoutY="355.0" text="Entrenador">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label layoutX="39.0" layoutY="65.0" text="¡Agrega un deporte!">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="68.0" fitWidth="57.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/channels4_profile.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="laboratorio1.controller.DeporteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #BDC3C7;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="laboratorio1.controller.DeporteController">
    <children>
-      <TableView fx:id="tblDeportes" layoutX="77.0" layoutY="85.0" prefHeight="200.0" prefWidth="394.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ecc71" height="400.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
+      <TableView fx:id="tblDeportes" layoutX="91.0" layoutY="110.0" prefHeight="200.0" prefWidth="394.0" style="-fx-background-color: #FFFFFF;">
         <columns>
           <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombre" />
           <TableColumn fx:id="colDescripcion" prefWidth="109.5999755859375" text="Descripción" />
@@ -20,5 +25,15 @@
       <Button layoutX="248.0" layoutY="326.0" mnemonicParsing="false" onAction="#editarDeporte" text="Editar deporte" />
       <Button layoutX="364.0" layoutY="326.0" mnemonicParsing="false" onAction="#eliminarDeporte" text="Eliminar deporte" />
       <Button layoutX="485.0" layoutY="26.0" mnemonicParsing="false" onAction="#switchToAdmin" text="Volver al inicio" />
+      <Label layoutX="209.0" layoutY="27.0" text="Deportes">
+         <font>
+            <Font name="System Bold Italic" size="32.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="85.0" fitWidth="123.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/channels4_profile.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

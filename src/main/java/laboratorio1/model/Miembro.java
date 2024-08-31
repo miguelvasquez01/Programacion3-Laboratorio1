@@ -1,14 +1,18 @@
 package laboratorio1.model;
 
-public abstract class Miembro {
+public  class Miembro {
+    private  int edad;
     private String nombre;
     private String email;
     private String id;
 
-    public Miembro(String nombre, String email, String id) {
+
+    public Miembro(String nombre, String email, String id, int edad) {
         this.nombre = nombre;
         this.email = email;
         this.id = id;
+        this.edad = edad;
+
     }
 
     public String getNombre() {
@@ -35,7 +39,13 @@ public abstract class Miembro {
         return id;
     }
 
-    // metodo abstracto que nos ayudara a comprobrar si un miembro puede inscribirse o no dependiendo si es juvenil o adulto
-    public abstract boolean PuedeInscribirse(Deporte deporte);
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
 
 }
