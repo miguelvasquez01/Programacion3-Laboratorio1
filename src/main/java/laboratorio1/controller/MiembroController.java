@@ -15,10 +15,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import laboratorio1.App;
+import laboratorio1.dao.SerializarObjeto;
 import laboratorio1.model.Miembro;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MiembroController implements Initializable {
@@ -91,6 +93,7 @@ public class MiembroController implements Initializable {
                 this.miembros.add(m);
                 this.tblMiembros.setItems(miembros);
                 tblMiembros.refresh();
+                m.guardar(miembros);
             }
 
         } catch (IOException e) {
@@ -171,6 +174,7 @@ public class MiembroController implements Initializable {
 
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -183,7 +187,13 @@ public class MiembroController implements Initializable {
         this.colEdad.setCellValueFactory(new PropertyValueFactory<>("edad"));
 
 
+        // Deserializar la lista de deportes desde el archivo
+        List<Miembro> listaD = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao()+"miembros.txt", Miembro.class);
 
+        // Verificar si la lista deserializada es nula o vacía
+        if (listaD != null && !listaD.isEmpty()) {
+            miembros.addAll(listaD); // Agregar los deportes a la lista observable
+        }
     }
 }
 

@@ -1,6 +1,12 @@
 package laboratorio1.model;
 
-public  class Miembro {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import laboratorio1.dao.SerializarObjeto;
+
+public  class Miembro implements Serializable {
     private  int edad;
     private String nombre;
     private String email;
@@ -47,5 +53,10 @@ public  class Miembro {
         this.edad = edad;
     }
 
+    // Método para guardar todos los deportes
+    public void guardar(List<Miembro> miembros) {
 
+        // Serializar la lista completa de deportes
+        SerializarObjeto.serializarLista(SerializarObjeto.rutaDao() + "miembros.txt", new ArrayList<>(miembros));
+    }
 }

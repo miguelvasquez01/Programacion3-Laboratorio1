@@ -3,6 +3,7 @@ package laboratorio1.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.ResourceBundle;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -164,7 +165,12 @@ public class SesionController implements Initializable {
 
         // Verificar si la lista deserializada es nula o vacía
         if (listaS != null && !listaS.isEmpty()) {
-            this.sesiones.addAll(listaS); // Agregar los deportes a la lista observable
+            // Filtrar las sesiones que no estén completadas y agregarlas a la lista observable
+            this.sesiones.addAll(
+                listaS.stream()
+                    .filter(sesion -> !sesion.isCompletada())  // Filtrar sesiones no completadas
+                    .collect(Collectors.toList())              // Convertir de vuelta a lista
+            );
         }
         
         this.colFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));

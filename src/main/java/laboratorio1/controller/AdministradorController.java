@@ -31,7 +31,7 @@ public class AdministradorController {
     }
 
     @FXML
-    void switchToVisualizarSesionesComp(ActionEvent event) {
-
+    void switchToVisualizarSesionesComp(ActionEvent event) throws IOException {
+        App.setRoot("sesionesCompletasView");
     }
 }

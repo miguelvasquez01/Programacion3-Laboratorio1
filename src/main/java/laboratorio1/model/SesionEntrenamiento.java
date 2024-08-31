@@ -84,7 +84,14 @@ public class SesionEntrenamiento implements Serializable {
         if (miembros != null && miembro != null) {
             miembros.add(miembro);
         }
-}
+    }
+
+    public boolean isCompletada() {
+        if (this.estado.equals(EstadoSesion.COMPLETADA)) {
+            return true;
+        }
+        return false;
+    }
 }
 
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="laboratorio1.controller.SesionesCompletasController">
+   <children>
+      <TableView fx:id="tblSesiones" layoutX="54.0" layoutY="115.0" prefHeight="200.0" prefWidth="492.0">
+        <columns>
+          <TableColumn fx:id="colFecha" prefWidth="75.0" text="Fecha" />
+          <TableColumn fx:id="colDuracion" prefWidth="75.0" text="Duración" />
+            <TableColumn fx:id="colDeporte" prefWidth="75.0" text="Deporte" />
+            <TableColumn fx:id="colEntrenador" prefWidth="75.0" text="Entrenador" />
+            <TableColumn fx:id="colEstado" prefWidth="75.0" text="Estado" />
+        </columns>
+      </TableView>
+      <Button layoutX="460.0" layoutY="29.0" mnemonicParsing="false" onAction="#switchToAdmin" text="Volver al inicio" />
+   </children>
+</AnchorPane>
