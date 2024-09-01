@@ -56,11 +56,11 @@ public class SesionesCompletasController implements Initializable {
         this.tblSesiones.setItems(sesiones);
 
         // Deserializar la lista de deportes desde el archivo
-        List<SesionEntrenamiento> listaS = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao()+"sesiones.txt", SesionEntrenamiento.class);
+        List<SesionEntrenamiento> listaS = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao()+"sesionesCompletadas.txt", SesionEntrenamiento.class);
 
         // Verificar si la lista deserializada es nula o vacía
         if (listaS != null && !listaS.isEmpty()) {
-            this.sesiones.addAll(listaS); // Agregar los deportes a la lista observable
+            this.sesiones.addAll(listaS);
         }
         
         this.colFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));

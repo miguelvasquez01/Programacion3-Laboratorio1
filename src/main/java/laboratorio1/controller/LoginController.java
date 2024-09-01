@@ -9,6 +9,9 @@ import laboratorio1.App;
 public class LoginController {
 
     @FXML
+    private TextField txtNombre;
+    
+    @FXML
     private TextField txtId;
 
     private  final String admin = "Juan David";
@@ -18,8 +21,6 @@ public class LoginController {
     private  final String admingen = "123";
     private  final String admingenid= "123";
 
-    @FXML
-    private TextField txtNombre;
 
     @FXML
     void IniciarSesion(ActionEvent event) {

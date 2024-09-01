@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import laboratorio1.dao.SerializarObjeto;
 
@@ -76,9 +77,30 @@ public class SesionEntrenamiento implements Serializable {
 
     // Método para guardar todas las sesiones
     public void guardar(List<SesionEntrenamiento> sesiones) {
-        // Serializar la lista completa de deportes
-        SerializarObjeto.serializarLista(SerializarObjeto.rutaDao() + "sesiones.txt", new ArrayList<>(sesiones));
+        // Deserializar las sesiones completadas previamente guardadas
+        List<SesionEntrenamiento> sesionesCompletadasPrevias = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao() + "sesionesCompletadas.txt", SesionEntrenamiento.class);
+
+        if (sesionesCompletadasPrevias == null) {
+            sesionesCompletadasPrevias = new ArrayList<>();
+        }
+
+        // Usar streams para separar las sesiones no completadas y las completadas
+        List<SesionEntrenamiento> sesionesNoCompletadas = sesiones.stream()
+            .filter(sesion -> !sesion.isCompletada())
+            .collect(Collectors.toList());
+
+        List<SesionEntrenamiento> nuevasSesionesCompletadas = sesiones.stream()
+            .filter(SesionEntrenamiento::isCompletada)
+            .collect(Collectors.toList());
+
+        // Agregar las nuevas sesiones completadas a la lista de sesiones completadas previas
+        sesionesCompletadasPrevias.addAll(nuevasSesionesCompletadas);
+
+        // Serializar las listas en archivos separados
+        SerializarObjeto.serializarLista(SerializarObjeto.rutaDao() + "sesionesProgramadas.txt", sesionesNoCompletadas);
+        SerializarObjeto.serializarLista(SerializarObjeto.rutaDao() + "sesionesCompletadas.txt", sesionesCompletadasPrevias);
     }
+
 
     public void agregarMiembro(Miembro miembro) {
         if (miembros != null && miembro != null) {
@@ -91,6 +113,12 @@ public class SesionEntrenamiento implements Serializable {
             return true;
         }
         return false;
+    }
+
+    public void cambiarEstado() {
+        if(fecha.isAfter(LocalDate.now())) {
+            setEstado(EstadoSesion.COMPLETADA);
+        }
     }
 }
 

@@ -188,11 +188,11 @@ public class MiembroController implements Initializable {
 
 
         // Deserializar la lista de deportes desde el archivo
-        List<Miembro> listaD = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao()+"miembros.txt", Miembro.class);
+        List<Miembro> listaM = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao()+"miembros.txt", Miembro.class);
 
         // Verificar si la lista deserializada es nula o vacía
-        if (listaD != null && !listaD.isEmpty()) {
-            miembros.addAll(listaD); // Agregar los deportes a la lista observable
+        if (listaM != null && !listaM.isEmpty()) {
+            miembros.addAll(listaM); // Agregar los deportes a la lista observable
         }
     }
 }

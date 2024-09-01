@@ -3,7 +3,6 @@ package laboratorio1.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.ResourceBundle;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -79,8 +78,9 @@ public class SesionController implements Initializable {
             if(s != null) {
                 this.sesiones.add(s);
                 this.tblSesiones.setItems(sesiones);
-                tblSesiones.refresh();
+                s.cambiarEstado();//Verifica que este antes del día actual
                 s.guardar(this.sesiones);
+                tblSesiones.refresh();
             }
 
         } catch (IOException e) {
@@ -121,6 +121,7 @@ public class SesionController implements Initializable {
                 SesionEntrenamiento aux = controlador.getSesion();
                 
                 if(aux != null) {
+                    aux.cambiarEstado();//Verifica que este antes del día actual
                     aux.guardar(this.sesiones);
                     tblSesiones.refresh();
                 }
@@ -149,6 +150,7 @@ public class SesionController implements Initializable {
         } else {
             this.sesiones.remove(s);
             this.tblSesiones.refresh();
+            s.cambiarEstado();//Verifica que este antes del día actual
             s.guardar(this.sesiones);
         }
     }
@@ -161,16 +163,11 @@ public class SesionController implements Initializable {
         this.tblSesiones.setItems(sesiones);
 
         // Deserializar la lista de deportes desde el archivo
-        List<SesionEntrenamiento> listaS = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao()+"sesiones.txt", SesionEntrenamiento.class);
+        List<SesionEntrenamiento> listaS = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao()+"sesionesProgramadas.txt", SesionEntrenamiento.class);
 
         // Verificar si la lista deserializada es nula o vacía
         if (listaS != null && !listaS.isEmpty()) {
-            // Filtrar las sesiones que no estén completadas y agregarlas a la lista observable
-            this.sesiones.addAll(
-                listaS.stream()
-                    .filter(sesion -> !sesion.isCompletada())  // Filtrar sesiones no completadas
-                    .collect(Collectors.toList())              // Convertir de vuelta a lista
-            );
+            this.sesiones.addAll(listaS);
         }
         
         this.colFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
