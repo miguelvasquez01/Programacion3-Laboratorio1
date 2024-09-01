@@ -40,18 +40,18 @@ public class Administrador {
     }
 
     // metodo para programar sesiones
-    public void ProgramarSesion(LocalDate fecha, int duracion, Deporte deporte, Entrenador entrenador)
+    public void ProgramarSesion(LocalDate fecha, int duracion, Deporte deporte, Entrenador entrenador , String idSesion)
             throws Exception {
 
         // Verifica que los parametros no sean invalidos o nulos
-        if (fecha == null || duracion < 0 || deporte == null || entrenador == null) {
+        if (fecha == null || duracion < 0 || deporte == null || entrenador == null ) {
             throw new Exception("Los parametros son invalidos");
 
         }
 
         // crea una sesion con los parametros suministrados
         SesionEntrenamiento sesion = new SesionEntrenamiento(fecha, duracion, EstadoSesion.PROGRAMADA, deporte,
-                entrenador);
+                entrenador, idSesion);
 
         // comprobar si se desea programar una sesion ya programada
         for (SesionEntrenamiento s : sesionesProgramadas) {

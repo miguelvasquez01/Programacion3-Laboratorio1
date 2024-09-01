@@ -45,6 +45,9 @@ public class DialogSesionController implements Initializable {
     @FXML
     private DatePicker tfFecha;
 
+    @FXML
+    private TextField tfIdSesion;
+
     private SesionEntrenamiento sesion;
     private ObservableList<SesionEntrenamiento> sesiones;
 
@@ -53,60 +56,107 @@ public class DialogSesionController implements Initializable {
 
     @FXML
     void aceptar(ActionEvent event) {
-
-        LocalDate fecha = this.tfFecha.getValue();
-        int duracion = Integer.parseInt(tfDuracion.getText());
-        EstadoSesion estado = EstadoSesion.PROGRAMADA;
-        Deporte deporte = (Deporte) this.tfDeporte.getSelectionModel().getSelectedItem();
-        Entrenador entrenador = (Entrenador) this.tfEntrenador.getSelectionModel().getSelectedItem();
-
-        SesionEntrenamiento s = new SesionEntrenamiento(fecha, duracion, estado, deporte, entrenador);
-
-        if(!sesiones.contains(s)) {
-
-            //Modificar
-            if(this.sesion != null) {
-                this.sesion.setFecha(fecha);
-                this.sesion.setDuracion(duracion);
-                this.sesion.setDeporte(deporte);
-                this.sesion.setEntrenador(entrenador);
-
-            //Insertar
-            } else {
-                this.sesion = s;
+        try {
+            // Validaciones
+            if (tfIdSesion.getText() == null || tfIdSesion.getText().trim().isEmpty()) {
+                showError("El ID de la sesión no puede estar vacío.");
+                return;
             }
 
-            Stage stage = (Stage) this.btnAceptar.getScene().getWindow();
-            stage.close();
+            LocalDate fecha = this.tfFecha.getValue();
+            if (fecha == null) {
+                showError("La fecha de la sesión no puede estar vacía.");
+                return;
+            }
 
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setTitle("Error");
-            alert.setContentText("La sesion ya existe");
-            alert.showAndWait();
+            if (fecha.isBefore(LocalDate.now())) {
+                showError("La fecha de la sesión no puede ser anterior a la fecha actual.");
+                return;
+            }
+
+            String duracionStr = tfDuracion.getText();
+            int duracion;
+            try {
+                duracion = Integer.parseInt(duracionStr);
+                if (duracion <= 0) {
+                    showError("La duración debe ser un número positivo.");
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                showError("La duración debe ser un número válido.");
+                return;
+            }
+
+            Deporte deporte = (Deporte) this.tfDeporte.getSelectionModel().getSelectedItem();
+            if (deporte == null) {
+                showError("Debe seleccionar un deporte.");
+                return;
+            }
+
+            Entrenador entrenador = (Entrenador) this.tfEntrenador.getSelectionModel().getSelectedItem();
+            if (entrenador == null) {
+                showError("Debe seleccionar un entrenador.");
+                return;
+            }
+
+            String idSesion = this.tfIdSesion.getText();
+            EstadoSesion estado = EstadoSesion.PROGRAMADA;
+            SesionEntrenamiento s = new SesionEntrenamiento(fecha, duracion, estado, deporte, entrenador, idSesion);
+
+            if (!sesiones.contains(s)) {
+
+                // Modificar
+                if (this.sesion != null) {
+                    this.sesion.setFecha(fecha);
+                    this.sesion.setDuracion(duracion);
+                    this.sesion.setDeporte(deporte);
+                    this.sesion.setEntrenador(entrenador);
+                    this.sesion.setIdSesion(idSesion);
+
+                } else {
+                    // Insertar
+                    this.sesion = s;
+                }
+
+                Stage stage = (Stage) this.btnAceptar.getScene().getWindow();
+                stage.close();
+
+            } else {
+                showError("La sesión ya existe.");
+            }
+        } catch (Exception e) {
+            showError("Error al procesar la solicitud: " + e.getMessage());
         }
     }
 
     @FXML
     void cancelar(ActionEvent event) {
-
         this.sesion = null;
         Stage stage = (Stage) this.btnCancelar.getScene().getWindow();
         stage.close();
     }
 
-    //Con este método mando todas las sesiones a esta clase para comprobar que no se repita
+    // Método para mostrar mensajes de error
+    private void showError(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText(null);
+        alert.setTitle("Error");
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
     public void initAtributos(ObservableList<SesionEntrenamiento> sesiones) {
         this.sesiones = sesiones;
     }
 
-    //Pone la sesión seleccionada en los campos de texto
     public void initAtributos(ObservableList<SesionEntrenamiento> sesiones, SesionEntrenamiento s) {
         this.sesiones = sesiones;
         this.sesion = s;
+        this.tfIdSesion.setText(s.getIdSesion());
         this.tfFecha.setValue(s.getFecha());
-        this.tfDuracion.setText(s.getDuracion() + "");
+        this.tfDuracion.setText(String.valueOf(s.getDuracion()));
+        this.tfDeporte.getSelectionModel().select(s.getDeporte());
+        this.tfEntrenador.getSelectionModel().select(s.getEntrenador());
     }
 
     public SesionEntrenamiento getSesion() {
@@ -116,45 +166,39 @@ public class DialogSesionController implements Initializable {
     @SuppressWarnings("unchecked")
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        
+
         // Deserializar la lista de deportes
-        List<Deporte> listaD = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao()+"deportes.txt", Deporte.class);
-        deportes.setAll(listaD); 
-        // Configurar el TableView con la lista observable
+        List<Deporte> listaD = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao() + "deportes.txt",
+                Deporte.class);
+        deportes.setAll(listaD);
         tfDeporte.setItems(deportes);
-        
-        // Configurar un StringConverter para mostrar los nombres de los deportes en el ComboBox
+
         tfDeporte.setConverter(new StringConverter<Deporte>() {
             @Override
             public String toString(Deporte deporte) {
-                // Verifica si el deporte es null antes de acceder a su nombre
-                return deporte != null ? deporte.getNombre() : "";//Convierte el entrenador en string
+                return deporte != null ? deporte.getNombre() : "";
             }
+
             @Override
             public Deporte fromString(String nombre) {
-                // el ComboBox ya sabe internamente qué objeto fue seleccionado, por lo que no se requiere una conversión desde texto (String) a objeto (Deporte).
                 return null;
             }
         });
 
         // Deserializar la lista de entrenadores desde el archivo
-        List<Entrenador> listaE = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao()+"entrenadores.txt", Entrenador.class);
+        List<Entrenador> listaE = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao() + "entrenadores.txt",
+                Entrenador.class);
         entrenadores.setAll(listaE);
-
-            // Configurar el ComboBox tfEntrenador con la lista observable de entrenadores
         tfEntrenador.setItems(entrenadores);
 
-        // Configurar un StringConverter para mostrar los nombres de los entrenadores en el ComboBox
         tfEntrenador.setConverter(new StringConverter<Entrenador>() {
             @Override
             public String toString(Entrenador entrenador) {
-                // Verifica si el entrenador es null antes de acceder a su nombre
-                return entrenador != null ? entrenador.getNombre() : "";//Convierte el entrenador en string
+                return entrenador != null ? entrenador.getNombre() : "";
             }
 
             @Override
             public Entrenador fromString(String nombre) {
-                // el ComboBox ya sabe internamente qué objeto fue seleccionado, por lo que no se requiere una conversión desde texto (String) a objeto (Entrenador).
                 return null;
             }
         });

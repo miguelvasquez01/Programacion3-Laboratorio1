@@ -41,6 +41,10 @@ public class MiembroController implements Initializable {
     @FXML
     private TableColumn colEdad;
 
+    @SuppressWarnings("rawtypes")
+    @FXML
+    private TableColumn colIdSesion;
+
 
     @FXML
     private TableView<Miembro> tblMiembros;
@@ -90,10 +94,19 @@ public class MiembroController implements Initializable {
                     new  Alert(Alert.AlertType.ERROR,"La edad debe ser mayor que 0").showAndWait();
                     return;
                 }
+
+                if (m.getIdSesion()== null || m.getIdSesion().isEmpty() ){
+                    new  Alert(Alert.AlertType.ERROR,"La id de la sesion no puede estar vacia").showAndWait();
+                    return;
+                }
+
+
                 this.miembros.add(m);
                 this.tblMiembros.setItems(miembros);
                 tblMiembros.refresh();
                 m.guardar(miembros);
+
+                new Alert(Alert.AlertType.INFORMATION,"Recuerda verificar que exista una sesion con ese id en el panel de sesiones programadas").showAndWait();
             }
 
         } catch (IOException e) {
@@ -143,6 +156,11 @@ public class MiembroController implements Initializable {
                         new Alert(Alert.AlertType.ERROR,"La edad debe ser mayor a 0").showAndWait();
                         return;
                     }
+
+                    if (aux.getIdSesion() == null || aux.getIdSesion().isEmpty()) {
+                        new Alert(Alert.AlertType.ERROR, "El id de la sesion no puede estar vacio").showAndWait();
+
+                    }
                     tblMiembros.refresh();
 
 
@@ -185,6 +203,7 @@ public class MiembroController implements Initializable {
         this.colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         this.colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         this.colEdad.setCellValueFactory(new PropertyValueFactory<>("edad"));
+        this.colIdSesion.setCellValueFactory(new PropertyValueFactory<>("IdSesion"));
 
 
         // Deserializar la lista de deportes desde el archivo

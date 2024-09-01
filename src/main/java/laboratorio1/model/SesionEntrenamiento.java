@@ -15,15 +15,17 @@ public class SesionEntrenamiento implements Serializable {
     private EstadoSesion estado;
     private Deporte deporte;
     private Entrenador entrenador;
+    private String idSesion;
     private List<Miembro> miembros;
 
     public SesionEntrenamiento(LocalDate fecha, int duracion, EstadoSesion estado, Deporte deporte,
-                               Entrenador entrenador) {
+                               Entrenador entrenador , String idSesion) {
         this.fecha = fecha;
         this.duracion = duracion;
         this.estado = estado;
         this.deporte = deporte;
         this.entrenador = entrenador;
+        this.idSesion = idSesion;
         this.miembros = new LinkedList<>();
     }
 
@@ -75,6 +77,17 @@ public class SesionEntrenamiento implements Serializable {
         this.miembros = miembros;
     }
 
+    public String getIdSesion() {
+        return idSesion;
+    }
+
+    public void setIdSesion(String idSesion) {
+        this.idSesion = idSesion;
+    }
+
+
+    
+
     // Método para guardar todas las sesiones
     public void guardar(List<SesionEntrenamiento> sesiones) {
         // Deserializar las sesiones completadas previamente guardadas
@@ -120,6 +133,8 @@ public class SesionEntrenamiento implements Serializable {
             setEstado(EstadoSesion.COMPLETADA);
         }
     }
+
+    
 }
 
 

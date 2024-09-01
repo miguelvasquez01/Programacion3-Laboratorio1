@@ -18,6 +18,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -44,6 +45,10 @@ public class SesionController implements Initializable {
     @SuppressWarnings("rawtypes")
     @FXML
     private TableColumn colFecha;
+
+    @SuppressWarnings("rawtypes")
+    @FXML
+    private TableColumn colIdSesion;
 
     @FXML
     private TableView<SesionEntrenamiento> tblSesiones;
@@ -74,6 +79,8 @@ public class SesionController implements Initializable {
             stage.showAndWait();
 
             SesionEntrenamiento s = controlador.getSesion();
+
+            
             
             if(s != null) {
                 this.sesiones.add(s);
@@ -91,6 +98,8 @@ public class SesionController implements Initializable {
             alert.showAndWait();
             System.out.println(e);
         }
+
+        new Alert (AlertType.INFORMATION,"Recuerde verificar el id de la sesion al momento de registrar un miembro").showAndWait();
     }
 
     @FXML
@@ -173,6 +182,7 @@ public class SesionController implements Initializable {
         this.colFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         this.colDuracion.setCellValueFactory(new PropertyValueFactory<>("duracion"));
         this.colEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        this.colIdSesion.setCellValueFactory(new PropertyValueFactory<>("idSesion"));
         // Configurar las columnas
         this.colDeporte.setCellValueFactory(cellData -> {
             SesionEntrenamiento sesion = cellData.getValue();

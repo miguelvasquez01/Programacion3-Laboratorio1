@@ -14,19 +14,20 @@
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bdc3c7" height="414.0" layoutX="300.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="307.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ecc71" height="420.0" layoutY="-13.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
-      <Button fx:id="secondaryButton" layoutX="61.0" layoutY="101.0" onAction="#switchToAdmin" style="-fx-background-color: #FFFFFF;" text="Volver " />
-      <TableView fx:id="tblSesiones" layoutX="223.0" layoutY="101.0" prefHeight="305.0" prefWidth="385.0">
+      <Button fx:id="secondaryButton" layoutX="39.0" layoutY="101.0" onAction="#switchToAdmin" style="-fx-background-color: #FFFFFF;" text="Volver " />
+      <TableView fx:id="tblSesiones" layoutX="163.0" layoutY="101.0" prefHeight="306.0" prefWidth="440.0">
         <columns>
-          <TableColumn fx:id="colFecha" prefWidth="75.0" text="Fecha" />
-          <TableColumn fx:id="colDuracion" prefWidth="75.0" text="Duración" />
-            <TableColumn fx:id="colDeporte" prefWidth="75.0" text="Deporte" />
-            <TableColumn fx:id="colEntrenador" prefWidth="75.0" text="Entrenador" />
-            <TableColumn fx:id="colEstado" prefWidth="75.0" text="Estado" />
+          <TableColumn fx:id="colFecha" prefWidth="66.39996337890625" text="Fecha" />
+          <TableColumn fx:id="colDuracion" prefWidth="76.80000305175781" text="Duración" />
+            <TableColumn fx:id="colDeporte" prefWidth="79.199951171875" text="Deporte" />
+            <TableColumn fx:id="colEntrenador" prefWidth="72.79998779296875" text="Entrenador" />
+            <TableColumn fx:id="colEstado" prefWidth="64.00006103515625" text="Estado" />
+            <TableColumn fx:id="colIdSesion" prefWidth="95.99993896484375" text="ID sesion" />
         </columns>
       </TableView>
-      <Button layoutX="61.0" layoutY="174.0" mnemonicParsing="false" onAction="#agregarSesion" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #FFFFFF;" text="Agregar sesión" />
-      <Button layoutX="61.0" layoutY="247.0" mnemonicParsing="false" onAction="#editarSesion" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #FFFFFF;" text="Editar sesión" />
-      <Button layoutX="61.0" layoutY="310.0" mnemonicParsing="false" onAction="#eliminarSesion" style="-fx-background-color: #FFFFFF;" text="Eliminar sesión" />
+      <Button layoutX="31.0" layoutY="174.0" mnemonicParsing="false" onAction="#agregarSesion" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #FFFFFF;" text="Agregar sesión" />
+      <Button layoutX="31.0" layoutY="241.0" mnemonicParsing="false" onAction="#editarSesion" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #FFFFFF;" text="Editar sesión" />
+      <Button layoutX="31.0" layoutY="305.0" mnemonicParsing="false" onAction="#eliminarSesion" style="-fx-background-color: #FFFFFF;" text="Eliminar sesión" />
       <Label layoutX="224.0" layoutY="28.0" prefHeight="45.0" prefWidth="152.0" text="SESIONES ">
          <font>
             <Font name="System Bold Italic" size="30.0" />

@@ -19,18 +19,19 @@
             <Font name="System Bold Italic" size="35.0" />
          </font>
       </Label>
-      <TableView fx:id="tblMiembros" layoutX="180.0" layoutY="102.0" prefHeight="304.0" prefWidth="425.0">
+      <TableView fx:id="tblMiembros" layoutX="148.0" layoutY="96.0" prefHeight="310.0" prefWidth="456.0">
         <columns>
-          <TableColumn fx:id="colNombre" prefWidth="105.33332824707031" text="Nombre" />
-          <TableColumn fx:id="colEmail" prefWidth="102.66668701171875" text="Email" />
-            <TableColumn fx:id="colId" prefWidth="88.00006103515625" text="ID" />
-            <TableColumn fx:id="colEdad" prefWidth="121.99990844726562" text="Edad" />
+          <TableColumn fx:id="colNombre" prefWidth="87.99993896484375" text="Nombre" />
+          <TableColumn fx:id="colEmail" prefWidth="103.199951171875" text="Email" />
+            <TableColumn fx:id="colId" prefWidth="91.199951171875" text="ID" />
+            <TableColumn fx:id="colEdad" prefWidth="89.59994506835938" text="Edad" />
+            <TableColumn fx:id="colIdSesion" prefWidth="89.59994506835938" text="IdSesion" />
         </columns>
       </TableView>
-      <Button layoutX="42.0" layoutY="202.0" mnemonicParsing="false" onAction="#añadirMiembro" prefHeight="25.0" prefWidth="110.0" text="Añadir miembro" />
-      <Button layoutX="43.0" layoutY="248.0" mnemonicParsing="false" onAction="#editarMiembro" prefHeight="25.0" prefWidth="110.0" text="Editar miembro" />
-      <Button layoutX="43.0" layoutY="293.0" mnemonicParsing="false" onAction="#eliminarMiembro" text="Eliminar miembro" />
-      <Button layoutX="47.0" layoutY="106.0" mnemonicParsing="false" onAction="#SwitchToAdmin" text="Volver" />
+      <Button layoutX="23.0" layoutY="201.0" mnemonicParsing="false" onAction="#añadirMiembro" prefHeight="25.0" prefWidth="110.0" text="Añadir miembro" />
+      <Button layoutX="23.0" layoutY="248.0" mnemonicParsing="false" onAction="#editarMiembro" prefHeight="25.0" prefWidth="110.0" text="Editar miembro" />
+      <Button layoutX="23.0" layoutY="293.0" mnemonicParsing="false" onAction="#eliminarMiembro" text="Eliminar miembro" />
+      <Button layoutX="23.0" layoutY="102.0" mnemonicParsing="false" onAction="#SwitchToAdmin" text="Volver" />
       <ImageView fitHeight="73.0" fitWidth="103.0" layoutX="527.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/png-transparent-computer-icons-learning-quizlet-school-team-members-business-area-technical-support-thumbnail.png" />
