@@ -129,10 +129,16 @@ public class SesionEntrenamiento implements Serializable {
     }
 
     public void cambiarEstado() {
-        if(fecha.isAfter(LocalDate.now())) {
+        if(fecha.isBefore(LocalDate.now())) {
             setEstado(EstadoSesion.COMPLETADA);
         }
+
+        else {
+            setEstado(EstadoSesion.PROGRAMADA);
+        }
     }
+
+
 
     
 }

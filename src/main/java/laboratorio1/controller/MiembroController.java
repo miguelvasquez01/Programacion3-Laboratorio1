@@ -162,6 +162,7 @@ public class MiembroController implements Initializable {
 
                     }
                     tblMiembros.refresh();
+                    m.guardar(miembros);
 
 
                 }
@@ -187,6 +188,7 @@ public class MiembroController implements Initializable {
         } else {
             this.miembros.remove(m);
             this.tblMiembros.refresh();
+            m.guardar(miembros);
 
         }
 

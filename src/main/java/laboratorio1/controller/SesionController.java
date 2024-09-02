@@ -87,7 +87,6 @@ public class SesionController implements Initializable {
                 this.tblSesiones.setItems(sesiones);
                 s.cambiarEstado();//Verifica que este antes del día actual
                 s.guardar(this.sesiones);
-                tblSesiones.refresh();
             }
 
         } catch (IOException e) {

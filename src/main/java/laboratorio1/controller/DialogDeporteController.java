@@ -58,6 +58,23 @@ public class DialogDeporteController implements Initializable {
 
         Deporte d = new Deporte(nombre, descripcion, nivelDificultad, entrenador);
 
+        if (d != null) {
+            if (d.getNombre() == null || d.getNombre().isEmpty()) {
+                new Alert(Alert.AlertType.ERROR, "El nombre no puede estar vacío").showAndWait();
+                return;
+            }
+            if (d.getDescripcion() == null || d.getDescripcion().isEmpty()) {
+                new Alert(Alert.AlertType.ERROR, "La descripcion no puede estar vacía").showAndWait();
+                return;
+            }
+
+            if (d.getNivelDificultad() == null) {
+                new Alert(Alert.AlertType.ERROR, "El nivel de dificultad no puede estar vacio").showAndWait();
+                return;
+            }
+
+
+        }
         if(!deportes.contains(d)) {
 
             //Modificar
