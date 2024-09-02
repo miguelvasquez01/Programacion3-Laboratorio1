@@ -155,8 +155,6 @@ public class DialogSesionController implements Initializable {
         this.tfIdSesion.setText(s.getIdSesion());
         this.tfFecha.setValue(s.getFecha());
         this.tfDuracion.setText(String.valueOf(s.getDuracion()));
-        this.tfDeporte.getSelectionModel().select(s.getDeporte());
-        this.tfEntrenador.getSelectionModel().select(s.getEntrenador());
     }
 
     public SesionEntrenamiento getSesion() {
