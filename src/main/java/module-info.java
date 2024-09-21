@@ -6,5 +6,6 @@ module laboratorio1 {
 
     opens laboratorio1.controller to javafx.fxml;
     opens laboratorio1.model to javafx.base;
+    opens laboratorio1.util to javafx.base;
     exports laboratorio1;
 }

@@ -9,18 +9,18 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="laboratorio1.controller.LoginController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="laboratorio1.controller.LoginController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ecc71" height="407.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bdc3c7" height="407.0" layoutX="300.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
       <TextField fx:id="txtId" layoutX="206.0" layoutY="251.0" promptText="Escriba aqui su id..." style="-fx-background-color: #FFFFFF;" />
-      <Button layoutX="248.0" layoutY="309.0" mnemonicParsing="false" onAction="#IniciarSesion" style="-fx-background-color: #FFFFFF;" text="Ingresar">
+      <Button fx:id="lbIngresar" layoutX="248.0" layoutY="309.0" mnemonicParsing="false" onAction="#IniciarSesion" style="-fx-background-color: #FFFFFF;" text="Ingresar">
          <font>
             <Font name="Bookman Old Style" size="12.0" />
          </font>
       </Button>
       <TextField fx:id="txtNombre" layoutX="206.0" layoutY="187.0" promptText="Escriba aqui su nombre.." style="-fx-background-color: #FFFFFF;" />
-      <Label layoutX="206.0" layoutY="99.0" text="Iniciar Sesion" textFill="#090000" textOverrun="WORD_ELLIPSIS">
+      <Label fx:id="lbIniciarSesion" layoutX="206.0" layoutY="99.0" text="Iniciar Sesion" textFill="#090000" textOverrun="WORD_ELLIPSIS">
          <font>
             <Font name="System Bold Italic" size="30.0" />
          </font>
@@ -30,12 +30,12 @@
             <Font name="System Bold Italic" size="39.0" />
          </font>
       </Label>
-      <Label layoutX="206.0" layoutY="169.0" text="Nombre">
+      <Label fx:id="lbNombre" layoutX="206.0" layoutY="169.0" text="Nombre">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="206.0" layoutY="233.0" text="ID">
+      <Label fx:id="lbId" layoutX="206.0" layoutY="233.0" text="ID">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
@@ -45,5 +45,8 @@
             <Image url="@../Images/channels4_profile.jpg" />
          </image>
       </ImageView>
+      <Button fx:id="lbIngles" layoutX="468.0" layoutY="71.0" mnemonicParsing="false" onAction="#cambiarIdiomaIngles" prefHeight="26.0" prefWidth="111.0" text="Inglés" />
+      <Button fx:id="lbEspañol" layoutX="468.0" layoutY="109.0" mnemonicParsing="false" onAction="#cambiarIdiomaEspanol" prefHeight="26.0" prefWidth="111.0" text="Español" />
+      <Label fx:id="lbSeleccione" layoutX="468.0" layoutY="52.0" text="Seleccione el idioma:" />
    </children>
 </AnchorPane>
