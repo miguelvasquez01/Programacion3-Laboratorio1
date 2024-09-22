@@ -65,45 +65,12 @@ public class Entrenador implements Serializable {
         SerializarObjeto.serializarLista(SerializarObjeto.rutaDao()+"entrenadores.txt", new ArrayList<>(entrenadores));
     }
 
-
-    //metodo para agregar sesiones , verifica si existe o no y si no existe agrega la sesion
-    public void agregarSesion(SesionEntrenamiento sesionEntrenamiento){
-        boolean existe = false;
-        for (SesionEntrenamiento sesion : sesiones) {
-            if (sesion.equals(sesionEntrenamiento)) {
-                existe = true;
-                break;
-                
-            }
-            
-        }
-
-        if (existe == false) {
-            sesiones.add(sesionEntrenamiento);
-            
-        }
-        
+    @Override
+    public String toString() {
+        return "Entrenador{" +
+               "Nombre='" + nombre + '\'' +
+               ", Especialidad=" + (especialidad != null ? especialidad.getNombre() : "N/A") +
+               ", Sesion=" + (sesion != null ? sesion.getFecha() : "N/A") +
+               '}';
     }
-    //metodo para remover sesiones, verifica que la lista sesiones no esta vacia y luego si la sesion existe, si esto pasa remueve la sesion de la lista de sesiones
-    public void removerSesion(SesionEntrenamiento sesionEntrenamiento) {
-        if (sesiones != null) {
-
-            boolean existe = false;
-            for (SesionEntrenamiento sesion : sesiones) {
-                if (sesion.equals(sesionEntrenamiento)) {
-                    existe = true;
-
-                }
-
-            }
-
-            if (existe == true) {
-                sesiones.remove(sesionEntrenamiento);
-
-            }
-
-        }
-
-    }
-
 }
