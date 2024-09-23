@@ -76,7 +76,7 @@ public class DeporteController implements Initializable {
             alert.setTitle("Error");
             alert.setContentText(e.getMessage());
             alert.showAndWait();
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 

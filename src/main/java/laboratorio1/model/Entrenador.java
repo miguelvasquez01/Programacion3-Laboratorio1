@@ -8,6 +8,9 @@ import java.util.List;
 import laboratorio1.dao.SerializarObjeto;
 
 public class Entrenador implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private String nombre;
     private Deporte especialidad;
     private List<SesionEntrenamiento> sesiones;
@@ -26,6 +29,11 @@ public class Entrenador implements Serializable {
         this.especialidad = especialidad;
         this.sesion = s;
     }
+
+    public Entrenador() {
+        //Constructor vacío para serializar XML
+    }
+
     //Getters y Setters
     public String getNombre() {
         return nombre;

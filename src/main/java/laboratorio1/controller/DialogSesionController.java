@@ -166,8 +166,7 @@ public class DialogSesionController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
 
         // Deserializar la lista de deportes
-        List<Deporte> listaD = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao() + "deportes.txt",
-                Deporte.class);
+        List<Deporte> listaD = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao() + "deportes.txt",Deporte.class);
         deportes.setAll(listaD);
         tfDeporte.setItems(deportes);
 

@@ -1,5 +1,6 @@
 package laboratorio1.controller;
 
+import java.io.File;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -91,13 +92,12 @@ public class DialogEntrenadorController implements Initializable {
     }
 
     //Pone el entrenador seleccionado en los campos de texto
-    @SuppressWarnings("unchecked")
     public void initAtributos(ObservableList<Entrenador> entrenadores, Entrenador e) {
         this.entrenadores = entrenadores;
         this.entrenador = e;
         this.tfNombre.setText(e.getNombre());
-        this.tfEspecialidad.setValue(e.getEspecialidad().getNombre());
-        this.tfSesiones.setValue(e.getSesion());
+        // this.tfEspecialidad.setValue(e.getEspecialidad().getNombre());
+        // this.tfSesiones.setValue(e.getSesion());
     }
 
     @SuppressWarnings("unchecked")
@@ -105,8 +105,13 @@ public class DialogEntrenadorController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         // Deserializar la lista de deportes
-        List<Deporte> listaD = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao()+"deportes.txt", Deporte.class);
-        deportes.setAll(listaD); 
+        File archivo = new File(SerializarObjeto.rutaDao() + "deportes.txt");
+        if(archivo.exists()) {
+            List<Deporte> listaD = SerializarObjeto.deserializarLista(SerializarObjeto.rutaDao()+"deportes.txt", Deporte.class);
+            deportes.setAll(listaD); 
+        } else {
+            System.out.println("Archivo no creado, hacer transient y quitar");
+        }
 
         // Configurar el ComboBox con la lista observable
         tfEspecialidad.setItems(deportes);

@@ -110,7 +110,7 @@ public class EntrenadorController implements Initializable {
                 
                 if(aux != null) {
                     tblEntrenadores.refresh();
-                    e.guardar(entrenadores);
+                    aux.guardar(entrenadores);
                 }
 
             } catch (IOException ex) {

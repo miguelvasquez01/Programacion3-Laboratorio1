@@ -111,7 +111,7 @@ public class MiembroController implements Initializable {
 
         } catch (IOException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).showAndWait();
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 

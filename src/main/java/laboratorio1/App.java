@@ -64,6 +64,15 @@ public class App extends Application {
         listaEntrenadores.add(entrenador11);
 
         Utilidades.getInstance().escribirArchivos(listaEntrenadores, null);
+
+        //Serialización XML
+        Utilidades.getInstance().serializarXML("src/main/java/laboratorio1/util/archivo.xml",
+                                                     entrenador1);
+        
+        Entrenador entrenadorXML;
+        entrenadorXML = (Entrenador) Utilidades.getInstance().deserializarXML("src/main/java/laboratorio1/util/archivo.xml");
+
+        System.out.println(entrenadorXML.toString());
     }
 
 }

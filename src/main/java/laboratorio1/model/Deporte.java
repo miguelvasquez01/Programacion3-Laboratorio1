@@ -8,6 +8,9 @@ import java.util.List;
 import laboratorio1.dao.SerializarObjeto;
 
 public class Deporte implements Serializable {
+
+    private static final long serialVersionUID = -4839371079044435597L;
+
     private String nombre;
     private String descripcion;
     private NivelDificultad nivelDificultad;

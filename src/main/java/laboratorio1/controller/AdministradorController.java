@@ -52,7 +52,6 @@ public class AdministradorController implements Initializable {
 
     @FXML
     void switchToGestionarDeportes(ActionEvent event) throws IOException {
-        System.out.println("Cambiando escena a deporteView");
         App.setRoot("deporteView");
     }
 

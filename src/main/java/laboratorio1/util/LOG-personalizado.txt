@@ -1,182 +1,108 @@
-sept 21, 2024 12:39:57 A. M. laboratorio1.util.Utilidades <clinit>
+sept 22, 2024 7:50:47 P. M. laboratorio1.util.Utilidades <clinit>
 INFORMACIÓN: LOG de info
-sept 21, 2024 12:44:36 A. M. laboratorio1.util.Utilidades <clinit>
-INFORMACIÓN: LOG de info
-sept 21, 2024 12:45:19 A. M. laboratorio1.util.Utilidades <clinit>
-INFORMACIÓN: LOG de info
-sept 21, 2024 12:45:32 A. M. laboratorio1.util.Utilidades <clinit>
-INFORMACIÓN: LOG de info
-sept 21, 2024 12:54:23 A. M. laboratorio1.util.Utilidades <clinit>
-INFORMACIÓN: LOG de info
-sept 21, 2024 12:54:23 A. M. laboratorio1.util.Utilidades <clinit>
+sept 22, 2024 7:50:47 P. M. laboratorio1.util.Utilidades <clinit>
 ADVERTENCIA: Mensaje de warning
-sept 21, 2024 12:54:23 A. M. laboratorio1.util.Utilidades <clinit>
+sept 22, 2024 7:50:47 P. M. laboratorio1.util.Utilidades <clinit>
 GRAVE: Mensaje severo
-sept 21, 2024 12:56:32 A. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:13:50 A. M. laboratorio1.util.Utilidades <clinit>
 INFORMACIÓN: LOG de info
-sept 21, 2024 12:56:32 A. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:13:50 A. M. laboratorio1.util.Utilidades <clinit>
 ADVERTENCIA: Mensaje de warning
-sept 21, 2024 12:56:32 A. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:13:50 A. M. laboratorio1.util.Utilidades <clinit>
 GRAVE: Mensaje severo
-sept 22, 2024 1:00:13 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:16:33 A. M. laboratorio1.util.Utilidades <clinit>
 INFORMACIÓN: LOG de info
-sept 22, 2024 1:00:13 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:16:33 A. M. laboratorio1.util.Utilidades <clinit>
 ADVERTENCIA: Mensaje de warning
-sept 22, 2024 1:00:13 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:16:33 A. M. laboratorio1.util.Utilidades <clinit>
 GRAVE: Mensaje severo
-sept 22, 2024 1:03:24 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:21:07 A. M. laboratorio1.util.Utilidades <clinit>
 INFORMACIÓN: LOG de info
-sept 22, 2024 1:03:24 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:21:07 A. M. laboratorio1.util.Utilidades <clinit>
 ADVERTENCIA: Mensaje de warning
-sept 22, 2024 1:03:24 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:21:07 A. M. laboratorio1.util.Utilidades <clinit>
 GRAVE: Mensaje severo
-sept 22, 2024 1:06:16 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:21:26 A. M. laboratorio1.util.Utilidades <clinit>
 INFORMACIÓN: LOG de info
-sept 22, 2024 1:06:16 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:21:26 A. M. laboratorio1.util.Utilidades <clinit>
 ADVERTENCIA: Mensaje de warning
-sept 22, 2024 1:06:16 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:21:26 A. M. laboratorio1.util.Utilidades <clinit>
 GRAVE: Mensaje severo
-sept 22, 2024 1:08:12 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:22:00 A. M. laboratorio1.util.Utilidades <clinit>
 INFORMACIÓN: LOG de info
-sept 22, 2024 1:08:12 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:22:00 A. M. laboratorio1.util.Utilidades <clinit>
 ADVERTENCIA: Mensaje de warning
-sept 22, 2024 1:08:12 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:22:00 A. M. laboratorio1.util.Utilidades <clinit>
 GRAVE: Mensaje severo
-sept 22, 2024 1:09:20 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:24:14 A. M. laboratorio1.util.Utilidades <clinit>
 INFORMACIÓN: LOG de info
-sept 22, 2024 1:09:20 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:24:14 A. M. laboratorio1.util.Utilidades <clinit>
 ADVERTENCIA: Mensaje de warning
-sept 22, 2024 1:09:20 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:24:14 A. M. laboratorio1.util.Utilidades <clinit>
 GRAVE: Mensaje severo
-sept 22, 2024 1:10:31 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:25:26 A. M. laboratorio1.util.Utilidades <clinit>
 INFORMACIÓN: LOG de info
-sept 22, 2024 1:10:31 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:25:26 A. M. laboratorio1.util.Utilidades <clinit>
 ADVERTENCIA: Mensaje de warning
-sept 22, 2024 1:10:31 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:25:26 A. M. laboratorio1.util.Utilidades <clinit>
 GRAVE: Mensaje severo
-sept 22, 2024 1:11:40 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:26:30 A. M. laboratorio1.util.Utilidades <clinit>
 INFORMACIÓN: LOG de info
-sept 22, 2024 1:11:40 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:26:30 A. M. laboratorio1.util.Utilidades <clinit>
 ADVERTENCIA: Mensaje de warning
-sept 22, 2024 1:11:40 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:26:30 A. M. laboratorio1.util.Utilidades <clinit>
 GRAVE: Mensaje severo
-sept 22, 2024 1:17:02 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:29:29 A. M. laboratorio1.util.Utilidades <clinit>
 INFORMACIÓN: LOG de info
-sept 22, 2024 1:17:02 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:29:29 A. M. laboratorio1.util.Utilidades <clinit>
 ADVERTENCIA: Mensaje de warning
-sept 22, 2024 1:17:02 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:29:29 A. M. laboratorio1.util.Utilidades <clinit>
 GRAVE: Mensaje severo
-sept 22, 2024 1:18:54 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:30:18 A. M. laboratorio1.util.Utilidades <clinit>
 INFORMACIÓN: LOG de info
-sept 22, 2024 1:18:55 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:30:18 A. M. laboratorio1.util.Utilidades <clinit>
 ADVERTENCIA: Mensaje de warning
-sept 22, 2024 1:18:55 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:30:18 A. M. laboratorio1.util.Utilidades <clinit>
 GRAVE: Mensaje severo
-sept 22, 2024 1:53:56 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:33:35 A. M. laboratorio1.util.Utilidades <clinit>
 INFORMACIÓN: LOG de info
-sept 22, 2024 1:53:56 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:33:35 A. M. laboratorio1.util.Utilidades <clinit>
 ADVERTENCIA: Mensaje de warning
-sept 22, 2024 1:53:56 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:33:35 A. M. laboratorio1.util.Utilidades <clinit>
 GRAVE: Mensaje severo
-sept 22, 2024 1:55:30 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:33:59 A. M. laboratorio1.util.Utilidades <clinit>
 INFORMACIÓN: LOG de info
-sept 22, 2024 1:55:30 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:33:59 A. M. laboratorio1.util.Utilidades <clinit>
 ADVERTENCIA: Mensaje de warning
-sept 22, 2024 1:55:30 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:33:59 A. M. laboratorio1.util.Utilidades <clinit>
 GRAVE: Mensaje severo
-sept 22, 2024 1:56:14 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:35:26 A. M. laboratorio1.util.Utilidades <clinit>
 INFORMACIÓN: LOG de info
-sept 22, 2024 1:56:14 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:35:26 A. M. laboratorio1.util.Utilidades <clinit>
 ADVERTENCIA: Mensaje de warning
-sept 22, 2024 1:56:14 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:35:26 A. M. laboratorio1.util.Utilidades <clinit>
 GRAVE: Mensaje severo
-sept 22, 2024 1:56:41 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:35:58 A. M. laboratorio1.util.Utilidades <clinit>
 INFORMACIÓN: LOG de info
-sept 22, 2024 1:56:41 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:35:58 A. M. laboratorio1.util.Utilidades <clinit>
 ADVERTENCIA: Mensaje de warning
-sept 22, 2024 1:56:41 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:35:58 A. M. laboratorio1.util.Utilidades <clinit>
 GRAVE: Mensaje severo
-sept 22, 2024 1:57:33 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:37:12 A. M. laboratorio1.util.Utilidades <clinit>
 INFORMACIÓN: LOG de info
-sept 22, 2024 1:57:33 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:37:12 A. M. laboratorio1.util.Utilidades <clinit>
 ADVERTENCIA: Mensaje de warning
-sept 22, 2024 1:57:33 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:37:12 A. M. laboratorio1.util.Utilidades <clinit>
 GRAVE: Mensaje severo
-sept 22, 2024 1:58:03 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:38:43 A. M. laboratorio1.util.Utilidades <clinit>
 INFORMACIÓN: LOG de info
-sept 22, 2024 1:58:03 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:38:43 A. M. laboratorio1.util.Utilidades <clinit>
 ADVERTENCIA: Mensaje de warning
-sept 22, 2024 1:58:03 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:38:43 A. M. laboratorio1.util.Utilidades <clinit>
 GRAVE: Mensaje severo
-sept 22, 2024 1:59:19 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:41:37 A. M. laboratorio1.util.Utilidades <clinit>
 INFORMACIÓN: LOG de info
-sept 22, 2024 1:59:19 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:41:37 A. M. laboratorio1.util.Utilidades <clinit>
 ADVERTENCIA: Mensaje de warning
-sept 22, 2024 1:59:19 P. M. laboratorio1.util.Utilidades <clinit>
-GRAVE: Mensaje severo
-sept 22, 2024 1:59:41 P. M. laboratorio1.util.Utilidades <clinit>
-INFORMACIÓN: LOG de info
-sept 22, 2024 1:59:41 P. M. laboratorio1.util.Utilidades <clinit>
-ADVERTENCIA: Mensaje de warning
-sept 22, 2024 1:59:41 P. M. laboratorio1.util.Utilidades <clinit>
-GRAVE: Mensaje severo
-sept 22, 2024 2:03:23 P. M. laboratorio1.util.Utilidades <clinit>
-INFORMACIÓN: LOG de info
-sept 22, 2024 2:03:23 P. M. laboratorio1.util.Utilidades <clinit>
-ADVERTENCIA: Mensaje de warning
-sept 22, 2024 2:03:23 P. M. laboratorio1.util.Utilidades <clinit>
-GRAVE: Mensaje severo
-sept 22, 2024 2:03:57 P. M. laboratorio1.util.Utilidades <clinit>
-INFORMACIÓN: LOG de info
-sept 22, 2024 2:03:57 P. M. laboratorio1.util.Utilidades <clinit>
-ADVERTENCIA: Mensaje de warning
-sept 22, 2024 2:03:57 P. M. laboratorio1.util.Utilidades <clinit>
-GRAVE: Mensaje severo
-sept 22, 2024 2:04:33 P. M. laboratorio1.util.Utilidades <clinit>
-INFORMACIÓN: LOG de info
-sept 22, 2024 2:04:33 P. M. laboratorio1.util.Utilidades <clinit>
-ADVERTENCIA: Mensaje de warning
-sept 22, 2024 2:04:33 P. M. laboratorio1.util.Utilidades <clinit>
-GRAVE: Mensaje severo
-sept 22, 2024 2:06:04 P. M. laboratorio1.util.Utilidades <clinit>
-INFORMACIÓN: LOG de info
-sept 22, 2024 2:06:04 P. M. laboratorio1.util.Utilidades <clinit>
-ADVERTENCIA: Mensaje de warning
-sept 22, 2024 2:06:04 P. M. laboratorio1.util.Utilidades <clinit>
-GRAVE: Mensaje severo
-sept 22, 2024 2:07:46 P. M. laboratorio1.util.Utilidades <clinit>
-INFORMACIÓN: LOG de info
-sept 22, 2024 2:07:46 P. M. laboratorio1.util.Utilidades <clinit>
-ADVERTENCIA: Mensaje de warning
-sept 22, 2024 2:07:46 P. M. laboratorio1.util.Utilidades <clinit>
-GRAVE: Mensaje severo
-sept 22, 2024 2:08:04 P. M. laboratorio1.util.Utilidades <clinit>
-INFORMACIÓN: LOG de info
-sept 22, 2024 2:08:04 P. M. laboratorio1.util.Utilidades <clinit>
-ADVERTENCIA: Mensaje de warning
-sept 22, 2024 2:08:04 P. M. laboratorio1.util.Utilidades <clinit>
-GRAVE: Mensaje severo
-sept 22, 2024 2:14:46 P. M. laboratorio1.util.Utilidades <clinit>
-INFORMACIÓN: LOG de info
-sept 22, 2024 2:14:46 P. M. laboratorio1.util.Utilidades <clinit>
-ADVERTENCIA: Mensaje de warning
-sept 22, 2024 2:14:46 P. M. laboratorio1.util.Utilidades <clinit>
-GRAVE: Mensaje severo
-sept 22, 2024 2:16:06 P. M. laboratorio1.util.Utilidades <clinit>
-INFORMACIÓN: LOG de info
-sept 22, 2024 2:16:06 P. M. laboratorio1.util.Utilidades <clinit>
-ADVERTENCIA: Mensaje de warning
-sept 22, 2024 2:16:06 P. M. laboratorio1.util.Utilidades <clinit>
-GRAVE: Mensaje severo
-sept 22, 2024 2:18:11 P. M. laboratorio1.util.Utilidades <clinit>
-INFORMACIÓN: LOG de info
-sept 22, 2024 2:18:11 P. M. laboratorio1.util.Utilidades <clinit>
-ADVERTENCIA: Mensaje de warning
-sept 22, 2024 2:18:11 P. M. laboratorio1.util.Utilidades <clinit>
-GRAVE: Mensaje severo
-sept 22, 2024 2:18:31 P. M. laboratorio1.util.Utilidades <clinit>
-INFORMACIÓN: LOG de info
-sept 22, 2024 2:18:31 P. M. laboratorio1.util.Utilidades <clinit>
-ADVERTENCIA: Mensaje de warning
-sept 22, 2024 2:18:31 P. M. laboratorio1.util.Utilidades <clinit>
+sept 23, 2024 12:41:37 A. M. laboratorio1.util.Utilidades <clinit>
 GRAVE: Mensaje severo

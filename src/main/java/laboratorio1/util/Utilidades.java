@@ -1,7 +1,12 @@
 package laboratorio1.util;
 
+import java.beans.XMLDecoder;
+import java.beans.XMLEncoder;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ResourceBundle;
@@ -135,5 +140,26 @@ public class Utilidades {
             System.out.println("No se pudo crear el directorio: " + rutaDirectorio);
             return ""; // Salimos del método si no se pudo crear
         }
-    }    
+    }
+    //--------------------------------------------------------------------------------------------------------
+    //Serialización XML
+
+    public void serializarXML(String ruta, Object objeto) throws FileNotFoundException {
+
+        XMLEncoder codificador;
+        codificador = new XMLEncoder(new FileOutputStream(ruta));
+        codificador.writeObject(objeto);
+        codificador.close();
+    }
+
+    public Object deserializarXML(String ruta) throws FileNotFoundException {
+
+        XMLDecoder decodificador;
+        Object objeto;
+
+        decodificador = new XMLDecoder(new FileInputStream(ruta));
+        objeto = decodificador.readObject();
+        decodificador.close();
+        return objeto;
+    }
 }
